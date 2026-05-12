@@ -1,0 +1,37 @@
+{
+  "alphas": [
+    {
+      "alpha_id": "QPnPp6Yg",
+      "expression": "liabilities/assets",
+      "status": "ACTIVE",
+      "sharpe": 1.54,
+      "fitness": 1.33,
+      "returns": 0.0934,
+      "turnover": 0.0171,
+      "margin": 0.010905,
+      "updated_utc": "2026-05-11T09:18:05+00:00"
+    },
+    {
+      "alpha_id": "npnx3M3x",
+      "expression": "0.6*rank(debt/assets)+0.4*(-rank(ts_delta(close, 5)))",
+      "status": "ACTIVE",
+      "sharpe": 1.75,
+      "fitness": 1.62,
+      "returns": 0.116,
+      "turnover": 0.1359,
+      "margin": 0.001708,
+      "updated_utc": "2026-05-12T08:51:25.529114+00:00"
+    },
+    {
+      "alpha_id": "6XRmEVaK",
+      "expression": "0.5*rank(debt/assets)+0.5*(-group_rank(close-open, subindustry))",
+      "status": "ACTIVE",
+      "sharpe": 2.02,
+      "fitness": 1.35,
+      "returns": 0.1249,
+      "turnover": 0.2803,
+      "margin": 0.000891,
+      "updated_utc": "2026-05-12T09:31:06.117930+00:00"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[Unit]
+Description=WorldQuant daily alpha miner
+
+[Service]
+Type=oneshot
+WorkingDirectory=<PROJECT_DIR>
+ExecStart=<PYTHON> -m wq_miner.daily --config configs/daily.yaml

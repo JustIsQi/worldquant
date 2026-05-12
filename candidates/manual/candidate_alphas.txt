@@ -1,0 +1,32 @@
+# High-priority candidates for the "3 valid submissible alphas today" run.
+# Start with low-turnover fundamental factors because previous liabilities/assets passed core IS metrics.
+liabilities/assets
+rank(liabilities/assets)
+group_rank(liabilities/assets, subindustry)
+debt/assets
+rank(debt/assets)
+debt_lt/assets
+rank(debt_lt/assets)
+debt_st/assets
+assets/liabilities
+-assets/liabilities
+liabilities_curr/assets_curr
+rank(liabilities_curr/assets_curr)
+cashflow/assets
+rank(cashflow/assets)
+income/assets
+rank(income/assets)
+sales/assets
+rank(sales/assets)
+revenue/assets
+rank(revenue/assets)
+bookvalue_ps/close
+rank(bookvalue_ps/close)
+dividend/close
+rank(dividend/close)
+cashflow/debt
+income/debt
+sales/debt
+ts_delta(liabilities/assets, 252)
+rank(ts_delta(liabilities/assets, 252))
+-rank(ts_delta(debt/assets, 252))

@@ -1,0 +1,5 @@
+# Example only. Replace <PROJECT_DIR>, <PYTHON>, and schedule before installing.
+# Do not install this file directly.
+#
+# m h dom mon dow command
+# <MINUTE> <HOUR> * * * cd <PROJECT_DIR> && <PYTHON> -m wq_miner.daily --config configs/daily.yaml >> daily_miner.log 2>&1

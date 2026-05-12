@@ -1,0 +1,9 @@
+# Static template candidates. The generator also creates combinations from
+# configs/daily.yaml fields and weights.
+rank(debt/assets)-rank(liabilities/assets)
+rank(debt_lt/assets)-rank(liabilities/assets)
+rank(debt/assets)-group_rank(liabilities/assets, subindustry)
+group_rank(debt/assets, subindustry)-rank(liabilities/assets)
+0.6*rank(debt/assets)+0.4*(-rank(ts_delta(close, 5)))
+0.6*rank(debt_lt/assets)+0.4*(-rank(ts_delta(close, 5)))
+trade_when(volume>adv20, 0.6*rank(debt/assets)+0.4*(-rank(ts_delta(close, 5))), -1)

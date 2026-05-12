@@ -1,0 +1,74 @@
+# Default daily WorldQuant BRAIN mining configuration.
+auth:
+  env_file: .env
+  auth_method: auto
+
+brain:
+  region: USA
+  universe: TOP3000
+  delay: 1
+  decay: 10
+  neutralization: SUBINDUSTRY
+  truncation: 0.08
+  pasteurization: ON
+  nan_handling: ON
+  max_wait_seconds: 900
+  submit_poll_seconds: 120
+  submit_poll_interval: 10.0
+
+run:
+  out_dir: runs
+  target_active: 1
+  target_active_per_week: 2
+  daily_budget_minutes: 90
+  workers: 1
+  max_inflight: 1
+  auto_submit: true
+  skip_before: 1
+  limit: 0
+
+candidates:
+  manual_globs: ["candidates/manual/*.txt"]
+  template_files: ["candidates/templates/default_templates.txt"]
+  generated_output_name: candidates.txt
+  filter_failed_history: true
+  per_family_max: 8
+  interleave: true
+  mix_weights: [0.7, 0.5]
+  price_mix_component: "-rank(ts_delta(close,5))"
+  families:
+    leverage:
+      enabled: true
+      builder: simple_rank
+      mix_with_price: true
+      fields: ["liabilities/assets", "debt/assets", "debt_lt/assets"]
+    quality:
+      enabled: true
+      builder: simple_rank
+      mix_with_price: true
+      fields: ["income/assets", "income/equity", "cashflow_op/assets", "income/revenue"]
+    value:
+      enabled: true
+      builder: simple_rank
+      mix_with_price: true
+      fields: ["bookvalue_ps/close", "sales/assets", "cashflow/cap", "income/cap"]
+    reversal_short:
+      enabled: true
+      builder: signal_passthrough
+      mix_with_price: false
+      fields: ["-ts_delta(close,5)", "-returns", "-ts_zscore(returns,5)"]
+    momentum_medium:
+      enabled: true
+      builder: signal_passthrough
+      mix_with_price: false
+      fields: ["ts_rank(returns,120)", "ts_delta(close,60)"]
+    volume_lowvol:
+      enabled: true
+      builder: signal_passthrough
+      mix_with_price: false
+      fields: ["-ts_corr(close,volume,20)", "-ts_std_dev(returns,20)"]
+
+state:
+  active_alphas: state/active_alphas.json
+  skip_history: state/skip_history.json
+  data_fields: state/data_fields.json

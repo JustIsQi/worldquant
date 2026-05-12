@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project local/runtime files
+runs/
+*.log
+*.pid
+.DS_Store
+.claude/settings.local.json

@@ -1,0 +1,575 @@
+{
+  "updated_utc": "2026-05-12T08:51:25.533180+00:00",
+  "entries": [
+    {
+      "expression": "-assets/liabilities",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank((close-open)/(high-low), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_corr(close, volume, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_corr(vwap, volume, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_decay_linear(close-open, 8), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_decay_linear(close-vwap, 8), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_mean(close-open, 5), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_mean(close-vwap, 5), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_mean(returns, 5), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_rank(close, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_rank(vwap, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_std_dev(returns, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_zscore(close, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-group_rank(ts_zscore(vwap, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank((close-open)/(high-low))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_corr(close, volume, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_corr(vwap, volume, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_decay_linear(ts_delta(close, 10), 8))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_decay_linear(ts_delta(close, 5), 8))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_decay_linear(ts_delta(vwap, 5), 8))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_delta(debt/assets, 252))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_mean(returns, 5))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_mean(ts_delta(close, 10), 5))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_mean(ts_delta(close, 5), 5))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_mean(ts_delta(vwap, 5), 5))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_rank(close, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_rank(vwap, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_std_dev(returns, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_zscore(close, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "-rank(ts_zscore(vwap, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.5*debt/assets+0.5*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.5*debt_lt/assets+0.5*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.5*rank(debt_lt/assets)+0.5*(-group_rank(close-open, subindustry))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.5*rank(debt_lt/assets)+0.5*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.6*debt/assets+0.4*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.6*debt_lt/assets+0.4*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.6*rank(debt/assets)+0.4*(-group_rank(close-open, subindustry))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.7*debt/assets+0.3*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.7*debt_lt/assets+0.3*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "0.7*rank(debt/assets)+0.3*(-rank(ts_delta(close, 5)))",
+      "family": "leverage",
+      "fail_reason": "SELF_CORRELATION"
+    },
+    {
+      "expression": "0.7*rank(debt_lt/assets)+0.3*(-group_rank(close-open, subindustry))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "assets/liabilities",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "bookvalue_ps/close",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "cashflow/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "cashflow/debt",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "debt/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "debt_lt/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "debt_st/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "dividend/close",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "group_rank((close-open)/(high-low), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "group_rank(debt/assets, subindustry)-rank(liabilities/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "group_rank(debt_lt/assets, subindustry)-rank(liabilities/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "group_rank(ts_mean(returns, 5), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "group_rank(ts_std_dev(returns, 20), subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "income/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "income/debt",
+      "family": null,
+      "fail_reason": "LOW_SHARPE"
+    },
+    {
+      "expression": "liabilities_curr/assets_curr",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank((close-open)/(high-low))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(bookvalue_ps/close)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(cashflow/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)*(-group_rank(close-open, subindustry))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)*rank(bookvalue_ps/close)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)*rank(income/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)*rank(sales/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)-group_rank(liabilities/assets, subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt/assets)-rank(liabilities/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)*(-group_rank(close-open, subindustry))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)*(-rank(ts_delta(close, 5)))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)*rank(bookvalue_ps/close)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)*rank(income/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)*rank(sales/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)-group_rank(liabilities/assets, subindustry)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(debt_lt/assets)-rank(liabilities/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(dividend/close)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(income/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(liabilities_curr/assets_curr)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(revenue/assets)",
+      "family": null,
+      "fail_reason": "LOW_SHARPE"
+    },
+    {
+      "expression": "rank(sales/assets)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(ts_delta(liabilities/assets, 252))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(ts_mean(returns, 5))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "rank(ts_std_dev(returns, 20))",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "revenue/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "sales/assets",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "sales/debt",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -group_rank((close-open)/(high-low), subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -group_rank(close-open, subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -group_rank(ts_corr(close, volume, 20), subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -group_rank(ts_delta(close, 5), subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -group_rank(ts_delta(vwap, 5), subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -group_rank(ts_zscore(close, 20), subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank((close-open)/(high-low)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(returns), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_corr(close, volume, 20)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_delta(close, 10)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_delta(close, 3)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_delta(close, 5)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_delta(vwap, 5)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_mean(returns, 5)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_std_dev(returns, 20)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -rank(ts_zscore(close, 20)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, -ts_rank(close, 10), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, 0.6*rank(debt/assets)+0.4*(-group_rank(close-open, subindustry)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, 0.6*rank(debt/assets)+0.4*(-rank(ts_delta(close, 5))), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, 0.6*rank(debt_lt/assets)+0.4*(-group_rank(close-open, subindustry)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, 0.6*rank(debt_lt/assets)+0.4*(-rank(ts_delta(close, 5))), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, group_rank((close-open)/(high-low), subindustry), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, rank((close-open)/(high-low)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, rank(ts_mean(returns, 5)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, rank(ts_std_dev(returns, 20)), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "trade_when(volume>adv20, rank(vwap-close), -1)",
+      "family": null,
+      "fail_reason": null
+    },
+    {
+      "expression": "ts_delta(liabilities/assets, 252)",
+      "family": null,
+      "fail_reason": null
+    }
+  ]
+}

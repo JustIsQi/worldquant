@@ -1,0 +1,10 @@
+[Unit]
+Description=Run WorldQuant daily alpha miner on a custom schedule
+
+[Timer]
+# Replace with your own schedule, for example: OnCalendar=*-*-* 08:00:00
+OnCalendar=<ON_CALENDAR>
+Persistent=true
+
+[Install]
+WantedBy=timers.target
