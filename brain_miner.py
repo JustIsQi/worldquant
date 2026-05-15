@@ -268,7 +268,7 @@ def is_submittable_candidate(row: dict[str, Any], *, allow_pending_self_correlat
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--alphas", type=Path, default=Path("seed_alphas.txt"))
+    parser.add_argument("--alphas", type=Path, default=Path("candidates/manual/seed_alphas.txt"))
     parser.add_argument("--out", type=Path, default=Path("runs"))
     parser.add_argument(
         "--env-file",

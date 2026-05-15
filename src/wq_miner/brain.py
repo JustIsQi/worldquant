@@ -90,13 +90,27 @@ def request_with_backoff(
     max_attempts: int = 8,
     **kwargs: Any,
 ) -> requests.Response:
+    last_exc: Exception | None = None
     for attempt in range(1, max_attempts + 1):
-        response = session.request(method, url, timeout=45, **kwargs)
+        try:
+            response = session.request(method, url, timeout=45, **kwargs)
+        except requests.exceptions.ConnectionError as exc:
+            last_exc = exc
+            retry_after = min(60, 5 * attempt)
+            print(
+                f"connection error attempt={attempt}: {type(exc).__name__}; "
+                f"sleeping {retry_after:.1f}s",
+                flush=True,
+            )
+            time.sleep(retry_after)
+            continue
         if response.status_code != 429:
             return response
         retry_after = float(response.headers.get("Retry-After") or min(60, 5 * attempt))
         print(f"rate limited; sleeping {retry_after:.1f}s", flush=True)
         time.sleep(retry_after)
+    if last_exc is not None:
+        raise last_exc
     return response
 
 

@@ -18,9 +18,9 @@ brain:
 
 run:
   out_dir: runs
-  target_active: 1
+  target_active: 999
   target_active_per_week: 2
-  daily_budget_minutes: 90
+  daily_budget_minutes: 0
   workers: 1
   max_inflight: 1
   auto_submit: true
@@ -28,42 +28,47 @@ run:
   limit: 0
 
 candidates:
-  manual_globs: ["candidates/manual/*.txt"]
-  template_files: ["candidates/templates/default_templates.txt"]
+  manual_globs: ["candidates/manual/candidate_alphas_round4.txt", "candidates/manual/candidate_alphas_quality_profitability.txt", "candidates/manual/candidate_alphas_value_growth.txt", "candidates/manual/candidate_alphas_stability_lowturnover.txt"]
+  template_files: ["candidates/templates/fundamental_quality_templates.txt"]
   generated_output_name: candidates.txt
   filter_failed_history: true
-  per_family_max: 8
+  per_family_max: 10
   interleave: true
-  mix_weights: [0.7, 0.5]
-  price_mix_component: "-rank(ts_delta(close,5))"
+  mix_weights: [0.8, 0.65]
+  price_mix_component: "-group_rank(ts_mean(returns,5), subindustry)"
   families:
     leverage:
-      enabled: true
+      enabled: false
       builder: simple_rank
       mix_with_price: true
       fields: ["liabilities/assets", "debt/assets", "debt_lt/assets"]
     quality:
       enabled: true
       builder: simple_rank
-      mix_with_price: true
-      fields: ["income/assets", "income/equity", "cashflow_op/assets", "income/revenue"]
+      mix_with_price: false
+      fields: ["return_assets", "return_equity", "gross_profit_to_assets_ratio", "cash_flow_return_on_invested_capital", "operating_income/assets", "cashflow_op/assets"]
     value:
       enabled: true
       builder: simple_rank
       mix_with_price: true
-      fields: ["bookvalue_ps/close", "sales/assets", "cashflow/cap", "income/cap"]
-    reversal_short:
+      fields: ["bookvalue_ps/close", "cashflow/cap", "ebit/cap", "dividend/close", "sales/assets", "cashflow_op/cap"]
+    growth_quality:
       enabled: true
+      builder: simple_rank
+      mix_with_price: false
+      fields: ["one_year_change_gross_profit_to_assets_2", "three_month_change_gross_profit_to_assets", "three_year_change_gross_profit_to_assets_2", "gross_profit_margin_ttm_2", "inventory_turnover"]
+    reversal_short:
+      enabled: false
       builder: signal_passthrough
       mix_with_price: false
       fields: ["-ts_delta(close,5)", "-returns", "-ts_zscore(returns,5)"]
     momentum_medium:
-      enabled: true
+      enabled: false
       builder: signal_passthrough
       mix_with_price: false
       fields: ["ts_rank(returns,120)", "ts_delta(close,60)"]
     volume_lowvol:
-      enabled: true
+      enabled: false
       builder: signal_passthrough
       mix_with_price: false
       fields: ["-ts_corr(close,volume,20)", "-ts_std_dev(returns,20)"]

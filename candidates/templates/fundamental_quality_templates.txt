@@ -1,0 +1,11 @@
+# Fundamental quality/value templates for the post LOW_FITNESS pass.
+rank(return_assets)-rank(debt/assets)
+rank(return_equity)-rank(debt/assets)
+rank(gross_profit_to_assets_ratio)-rank(liabilities/assets)
+rank(cash_flow_return_on_invested_capital)-rank(debt_lt/assets)
+group_rank(return_assets, subindustry)-group_rank(debt/assets, subindustry)
+group_rank(gross_profit_to_assets_ratio, subindustry)-group_rank(liabilities/assets, subindustry)
+0.8*rank(return_assets)+0.2*(-group_rank(ts_mean(returns,5), subindustry))
+0.8*rank(gross_profit_to_assets_ratio)+0.2*(-group_rank(ts_mean(returns,5), subindustry))
+0.75*rank(cash_flow_return_on_invested_capital)+0.25*(-group_rank(ts_mean(returns,5), subindustry))
+0.75*rank(bookvalue_ps/close)+0.25*rank(gross_profit_to_assets_ratio)

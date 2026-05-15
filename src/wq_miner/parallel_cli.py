@@ -24,7 +24,7 @@ def load_processed(path: Path | None) -> set[int]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--alphas", type=Path, default=Path("candidate_alphas.txt"))
+    parser.add_argument("--alphas", type=Path, default=Path("candidates/manual/candidate_alphas.txt"))
     parser.add_argument("--out", type=Path, default=Path("runs"))
     parser.add_argument("--resume-summary", type=Path)
     parser.add_argument("--skip-before", type=int, default=1)

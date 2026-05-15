@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-05-13T06:01:41.601641+00:00",
+  "updated_utc": "2026-05-12T08:51:25.533180+00:00",
   "entries": [
     {
       "expression": "-assets/liabilities",
@@ -10,11 +10,6 @@
       "expression": "-group_rank((close-open)/(high-low), subindustry)",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "-group_rank(close-open, subindustry)",
-      "family": null,
-      "fail_reason": "LOW_FITNESS"
     },
     {
       "expression": "-group_rank(ts_corr(close, volume, 20), subindustry)",
@@ -82,16 +77,6 @@
       "fail_reason": null
     },
     {
-      "expression": "-rank(returns)",
-      "family": null,
-      "fail_reason": "LOW_FITNESS"
-    },
-    {
-      "expression": "-rank(ts_arg_min(close, 20))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
-    },
-    {
       "expression": "-rank(ts_corr(close, volume, 20))",
       "family": null,
       "fail_reason": null
@@ -100,11 +85,6 @@
       "expression": "-rank(ts_corr(vwap, volume, 20))",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "-rank(ts_decay_linear(close-vwap, 8))",
-      "family": null,
-      "fail_reason": "LOW_FITNESS"
     },
     {
       "expression": "-rank(ts_decay_linear(ts_delta(close, 10), 8))",
@@ -120,11 +100,6 @@
       "expression": "-rank(ts_decay_linear(ts_delta(vwap, 5), 8))",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "-rank(ts_delta(close, 5))",
-      "family": null,
-      "fail_reason": "LOW_FITNESS"
     },
     {
       "expression": "-rank(ts_delta(debt/assets, 252))",
@@ -187,11 +162,6 @@
       "fail_reason": null
     },
     {
-      "expression": "0.5*rank(debt/assets)+0.5*(-rank(ts_delta(close, 5)))",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
-    },
-    {
       "expression": "0.5*rank(debt_lt/assets)+0.5*(-group_rank(close-open, subindustry))",
       "family": null,
       "fail_reason": null
@@ -217,16 +187,6 @@
       "fail_reason": null
     },
     {
-      "expression": "0.6*rank(debt_lt/assets)+0.4*(-group_rank(close-open, subindustry))",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
-    },
-    {
-      "expression": "0.6*rank(debt_lt/assets)+0.4*(-rank(ts_delta(close, 5)))",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
-    },
-    {
       "expression": "0.7*debt/assets+0.3*(-rank(ts_delta(close, 5)))",
       "family": null,
       "fail_reason": null
@@ -237,11 +197,6 @@
       "fail_reason": null
     },
     {
-      "expression": "0.7*rank(debt/assets)+0.3*(-group_rank(close-open, subindustry))",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
-    },
-    {
       "expression": "0.7*rank(debt/assets)+0.3*(-rank(ts_delta(close, 5)))",
       "family": "leverage",
       "fail_reason": "SELF_CORRELATION"
@@ -250,11 +205,6 @@
       "expression": "0.7*rank(debt_lt/assets)+0.3*(-group_rank(close-open, subindustry))",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "0.7*rank(debt_lt/assets)+0.3*(-rank(ts_delta(close, 5)))",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
     },
     {
       "expression": "assets/liabilities",
@@ -310,11 +260,6 @@
       "expression": "group_rank(debt_lt/assets, subindustry)-rank(liabilities/assets)",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "group_rank(liabilities/assets, subindustry)",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
     },
     {
       "expression": "group_rank(ts_mean(returns, 5), subindustry)",
@@ -447,11 +392,6 @@
       "fail_reason": null
     },
     {
-      "expression": "rank(liabilities/assets)",
-      "family": "leverage",
-      "fail_reason": "SELF_CORRELATION"
-    },
-    {
       "expression": "rank(liabilities_curr/assets_curr)",
       "family": null,
       "fail_reason": null
@@ -467,34 +407,9 @@
       "fail_reason": null
     },
     {
-      "expression": "rank(ts_arg_max(close, 20))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
-    },
-    {
-      "expression": "rank(ts_corr(rank(close), rank(volume), 10))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
-    },
-    {
-      "expression": "rank(ts_decay_linear(returns, 8))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
-    },
-    {
       "expression": "rank(ts_delta(liabilities/assets, 252))",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "rank(ts_delta(volume, 5))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
-    },
-    {
-      "expression": "rank(ts_delta(vwap, 5))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
     },
     {
       "expression": "rank(ts_mean(returns, 5))",
@@ -505,16 +420,6 @@
       "expression": "rank(ts_std_dev(returns, 20))",
       "family": null,
       "fail_reason": null
-    },
-    {
-      "expression": "rank(ts_zscore(volume, 20))",
-      "family": null,
-      "fail_reason": "LOW_SHARPE"
-    },
-    {
-      "expression": "rank(vwap-close)",
-      "family": null,
-      "fail_reason": "LOW_FITNESS"
     },
     {
       "expression": "revenue/assets",

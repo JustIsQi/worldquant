@@ -32,6 +32,83 @@
       "turnover": 0.2803,
       "margin": 0.000891,
       "updated_utc": "2026-05-12T09:31:06.117930+00:00"
+    },
+    {
+      "alpha_id": "d5ngNqgj",
+      "expression": "group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": 1.88,
+      "fitness": 1.56,
+      "returns": 0.0856,
+      "turnover": 0.0377,
+      "margin": 0.004544,
+      "updated_utc": "2026-05-14T09:07:00.001921+00:00"
+    },
+    {
+      "alpha_id": "QPnjXNpX",
+      "expression": "group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": 1.84,
+      "fitness": 1.43,
+      "returns": 0.0758,
+      "turnover": 0.0461,
+      "margin": 0.003285,
+      "updated_utc": "2026-05-14T09:18:41.013809+00:00"
+    },
+    {
+      "alpha_id": "Jjnm1m3A",
+      "expression": "0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.90*group_rank(-mdl177_2_earningmomentumfactor400_q1aepsg, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": 1.42,
+      "fitness": 1.09,
+      "returns": 0.074,
+      "turnover": 0.032,
+      "margin": 0.004631,
+      "updated_utc": "2026-05-14T11:56:36.741276+00:00"
+    },
+    {
+      "alpha_id": "rKbJPA9m",
+      "expression": "0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.90*group_rank(-mdl177_2_earningmomentumfactor400_q1aepsg, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": 1.6,
+      "fitness": 1.33,
+      "returns": 0.0866,
+      "turnover": 0.03,
+      "margin": 0.005768,
+      "updated_utc": "2026-05-15T02:41:56.102509+00:00"
+    },
+    {
+      "alpha_id": "E5qglQXm",
+      "expression": "0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.90*group_rank(-mdl177_2_earningmomentumfactor400_q1aepsg, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": 1.47,
+      "fitness": 1.15,
+      "returns": 0.0771,
+      "turnover": 0.042,
+      "margin": 0.003674,
+      "updated_utc": "2026-05-15T03:00:16.156397+00:00"
+    },
+    {
+      "alpha_id": "A1nnRKqY",
+      "expression": "0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_2_pricemomentumfactor_pc_ratio, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": "1.92",
+      "fitness": "1.41",
+      "returns": "0.0677",
+      "turnover": "0.1133",
+      "margin": "0.001196",
+      "updated_utc": "2026-05-15T05:27:33.978588+00:00"
+    },
+    {
+      "alpha_id": "e7nnpGmE",
+      "expression": "0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_act_util, subindustry)",
+      "status": "ACTIVE",
+      "sharpe": 1.27,
+      "fitness": 1.23,
+      "returns": 0.1205,
+      "turnover": 0.1294,
+      "margin": 0.001862,
+      "updated_utc": "2026-05-15T06:01:38.117024+00:00"
     }
   ]
 }
