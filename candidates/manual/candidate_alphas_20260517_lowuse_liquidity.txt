@@ -1,0 +1,23 @@
+# 2026-05-17 low-use liquidity/short-interest expansion.
+# Goal: one more ACTIVE after the mdl177 monchgsip_alt hit. Use low-user model77
+# variants and 12-month short-interest-change fields to reduce self-correlation.
+
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-mdl77_monchgsip, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-mdl77_2liquidityriskfactor_monchgsip, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-mdl77_liquidityriskfactor_monchgsip, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-mdl77_monchgsip, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-mdl77_2liquidityriskfactor_monchgsip, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-mdl77_liquidityriskfactor_monchgsip, subindustry)
+
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_monchgsip, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_2liquidityriskfactor_monchgsip, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_liquidityriskfactor_monchgsip, subindustry)
+
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-mdl77_2400_chg12msip, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-twelve_month_short_interest_change, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-mdl77_2400_chg12msip, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-twelve_month_short_interest_change, subindustry)
+
+group_rank(-mdl77_monchgsip, subindustry)
+group_rank(-mdl77_2liquidityriskfactor_monchgsip, subindustry)
+group_rank(-mdl77_liquidityriskfactor_monchgsip, subindustry)

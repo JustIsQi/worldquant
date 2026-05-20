@@ -1,0 +1,21 @@
+# 2026-05-19 GOOD near-miss rescue.
+# qMn37NYP and j2nxaPOZ were GOOD but self-correlation around 0.77-0.79.
+# Reduce old value anchor further and try adjacent less-crowded anchors.
+
+0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.65*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.05*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.70*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.60*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.05*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.65*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.65*group_rank(ts_rank(snt1_d1_sellrecpercent, 120), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.65*group_rank(ts_delta(snt1_d1_downtargetpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Adjacent value anchor that is less dominant than rel5yfwdep.
+0.20*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.55*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.15*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.60*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.10*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.65*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Earnings-surprise anchor at small weight.
+0.20*group_rank(-mdl77_earningmomentumfactor_fqsurstd, subindustry)+0.55*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.15*group_rank(-mdl77_earningmomentumfactor_fqsurstd, subindustry)+0.60*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.10*group_rank(-mdl77_earningmomentumfactor_fqsurstd, subindustry)+0.65*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)

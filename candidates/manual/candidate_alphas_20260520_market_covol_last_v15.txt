@@ -1,0 +1,18 @@
+# 2026-05-20 v15: final MARKET covol variants.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# v14 success: 0.65 * -covol + 0.35 * close 5-day reversal.
+
+0.70*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.75*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.25*group_rank(-ts_delta(close, 5), subindustry)
+0.55*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.45*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.35*group_rank(-ts_delta(close, 10), subindustry)
+0.60*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.40*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(-mdl177_2_liquidityriskfactor_covol, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl177_2_liquidityriskfactor_covol, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_liquidityriskfactor_covol_alt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl177_liquidityriskfactor_covol_alt, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+
+# Related covol time-series transforms with close stabilizer.
+0.65*group_rank(-ts_rank(mdl77_2liquidityriskfactor_covol, 120), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_zscore(mdl77_2liquidityriskfactor_covol, 120), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

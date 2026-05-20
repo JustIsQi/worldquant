@@ -1,0 +1,23 @@
+# 2026-05-19 targeted LOW_SUB_UNIVERSE_SHARPE repair.
+# These candidates previously had GOOD/EXCELLENT-grade main metrics but failed
+# sub-universe checks narrowly. Re-run with lower truncation to reduce weight
+# concentration instead of doing another tiny weight sweep.
+
+# Sales surprise + rel5yocfp variants that previously failed around value 0.90-0.93
+# versus limit 1.00-1.03.
+0.40*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+
+# Option structure candidate previously close to sub-universe pass.
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl177_pricemomemtummodel_voldiff_pc, subindustry)
+
+# Short-concentration candidates from the option_short_pivot run, slight weight
+# increase to test whether the short signal can cross the quality threshold.
+0.85*group_rank(-mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.90*group_rank(-mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)+0.10*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_devnorthamericashortsentimentfactor_dmd_conc, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.90*group_rank(-mdl77_devnorthamericashortsentimentfactor_dmd_conc, subindustry)+0.10*group_rank(-ts_delta(close, 20), subindustry)

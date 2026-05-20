@@ -1,0 +1,31 @@
+# 2026-05-19 global-rank reformulations.
+# Use rank() instead of group_rank() to change the holding shape while final
+# neutralization still controls sector/industry exposure.
+
+# Earnings surprise / revision fields previously strong under group_rank.
+0.65*rank(-mdl77_earningmomentumfactor_fqsurstd)+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(-standardized_unexpected_earnings_2)+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(-quarterly_earnings_surprise_stddev)+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(skewness_leading_12m_eps_estimates)+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(mdl77_oearningmomentumfactor_ratrev6m)+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(-revision_fiscal_q1_eps_forecast)+0.35*(-rank(ts_delta(vwap, 10)))
+
+# Accounting quality fields with lower self-correlation potential.
+0.70*rank(mdl77_earningsqualityfactor_cre)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_oearningsqualityfactor_lccau)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_earningsqualityfactor_lccau)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_earningsqualityfactor_rau)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2earningsqualityfactor_ttmaccu)+0.30*(-rank(ts_delta(vwap, 10)))
+
+# Short-interest / borrow fields under time-series transformations.
+0.70*rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_act_util, 60))+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_act_util, 60))+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(ts_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, 120))+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-ts_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, 120))+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(ts_zscore(mdl77_devnorthamericashortsentimentfactor_dmd_supply, 120))+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-ts_zscore(mdl77_devnorthamericashortsentimentfactor_dmd_supply, 120))+0.30*(-rank(ts_delta(vwap, 10)))
+
+# SNT1 time-series forms that are less current-level-like.
+0.65*rank(ts_zscore(snt1_d1_sellrecpercent, 60))+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(ts_rank(snt1_d1_sellrecpercent, 120))+0.35*(-rank(ts_delta(vwap, 10)))
+0.65*rank(ts_delta(snt1_d1_downtargetpercent, 60))+0.35*(-rank(ts_delta(vwap, 10)))

@@ -1,0 +1,72 @@
+# 2026-05-18 continuation: mine 6 more ACTIVE factors.
+# Priority: low-use analyst/earnings fields first, then option and borrow/short
+# fields. Avoid rel5yfwdep and q1aepsg reuse.
+
+# Known strong screened candidate not yet submitted at the start of this run.
+0.65*group_rank(-standardized_unexpected_earnings_2, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+# Low-use earnings surprise and analyst revision fields.
+0.65*group_rank(-mdl77_earningmomentumfactor_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_earningmomentumfactor_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_oearningmomentumfactor_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ooearningsmomemtummodel_fc_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_ooearningsmomemtummodel_fc_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_earningmomentumfactor_fy1epsskew, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_earningmomentumfactor_fy1epsskew, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_2earningmomentumfactor400_mrspe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_mrspe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_earningmomentumfactor_mrspe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_earningmomentumfactor_mrspe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_earningmomentumfactor_rev6, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_earningmomentumfactor_rev6, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_oearningmomentumfactor_ratrev6m, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_ratrev6m, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_earningmomentumfactor_numrevq1, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_earningmomentumfactor_numrevq1, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(revision_fiscal_q1_eps_forecast, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-revision_fiscal_q1_eps_forecast, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(time_weighted_eps_stddev_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-time_weighted_eps_stddev_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+# Short-interest monthly change variants, using the same price stabilizer as
+# today's successful monchgsip candidate but different fields.
+0.60*group_rank(-mdl77_2liquidityriskfactor_monchgsip, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_liquidityriskfactor_monchgsip, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(mdl77_2liquidityriskfactor_monchgsip, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(mdl77_liquidityriskfactor_monchgsip, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+
+# Borrow-market and short-sentiment fields with rel5yocfp anchor.
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_devnorthamericashortsentimentfactor_dmd_supply, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_devnorthamericashortsentimentfactor_dmd_supply, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_devnorthamericashortsentimentfactor_tni_ths, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_shortsentimentfactor_benchmark_fee, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_shortsentimentfactor_benchmark_fee, subindustry)
+
+# Option put/call, implied-volatility and skew candidates.
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-out_of_money_put_call_ratio, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(out_of_money_put_call_ratio, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_2400_ctpmto, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(mdl77_2400_ctpmto, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_2liquidityriskfactor_atmputvol, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(mdl77_2liquidityriskfactor_atmputvol, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_liquidityriskfactor_atmcallvol, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(mdl77_liquidityriskfactor_atmcallvol, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_pricemomentumfactor_skew90drtn, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(mdl77_pricemomentumfactor_skew90drtn, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_opricemomentumfactor_skew90cortn, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(mdl77_opricemomentumfactor_skew90cortn, subindustry)

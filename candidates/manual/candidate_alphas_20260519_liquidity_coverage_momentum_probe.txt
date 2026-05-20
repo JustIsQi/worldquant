@@ -1,0 +1,46 @@
+# 2026-05-19 liquidity / analyst coverage / momentum-model probe.
+# New information buckets after SNT, sales surprise, accounting-quality,
+# FANGMA, and strong-anchor rescue were exhausted.
+
+# Analyst coverage and liquidity structure.
+0.70*group_rank(mdl77_liquidityriskfactor_numest, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_numest, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_liquidityriskfactor_mktcappera, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_mktcappera, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_liquidityriskfactor_cvvolp20d, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_cvvolp20d, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_milliq, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_milliq, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Visibility and size/liquidity fields.
+0.70*group_rank(mdl77_pricemomemtummodel_visiratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_pricemomemtummodel_visiratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_400_visiratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_400_visiratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_liquidityriskfactor_nlmktcap, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_nlmktcap, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_liquidityriskfactor_nlassets, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_nlassets, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Risk / leverage / operating leverage.
+0.70*group_rank(mdl77_2liquidityriskfactor_beta, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_beta, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_yoychgda, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_yoychgda, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_liquidityriskfactor_oplev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_oplev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Model77 price momentum fields, screened both signs because momentum/reversal
+# may flip after neutralization and decay.
+0.70*group_rank(mdl77_pricemomentumfactor_actrtn12m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_pricemomentumfactor_actrtn12m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_opricemomentumfactor_chgalpha12m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_opricemomentumfactor_chgalpha12m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_opricemomentumfactor_rationalalpha, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_opricemomentumfactor_rationalalpha, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_opricemomentumfactor_slope52wp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_opricemomentumfactor_slope52wp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Zero-use geography exposure.
+0.70*group_rank(north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

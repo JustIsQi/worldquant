@@ -1,0 +1,45 @@
+# 2026-05-19 liquidity-risk breadth last mile.
+# Use broader Model77 liquidity/risk subfields not already exhausted by
+# numest/visibility/benchmark-fee/geography. Auto-submit should stop at 2 ACTIVE.
+
+# Short interest / short interest pressure, related but not identical to borrow fee.
+0.70*group_rank(-mdl77_2liquidityriskfactor_si_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_si_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_si_ratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_sip, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_sip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Coverage and capital structure / distress quality.
+0.70*group_rank(mdl77_2liquidityriskfactor_altmanz, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_ohlsonscore, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl177_2_liquidityriskfactor_intcov, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_totalcov, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_totalcov, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_dcc, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_dcc, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_voctni, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_voctni, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Balance-sheet liquidity and cash-flow coverage.
+0.70*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_netcashp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_cashratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_curratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_ocfratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Residual risk / volatility / liquidity microstructure.
+0.70*group_rank(-mdl77_2liquidityriskfactor_rerror60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_rerror60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_betasigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_bap20d, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_volto, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Asset quality / growth-duration fields.
+0.70*group_rank(-mdl77_2liquidityriskfactor_astcomp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_growdura, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_tobinq, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_tobinq, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

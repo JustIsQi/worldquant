@@ -1,0 +1,29 @@
+# 2026-05-19 sector-neutralization last mile.
+# Reuse only information sources that proved useful today, but change the
+# neutralization setting to SECTOR in the run command to alter holdings.
+
+# Successful short benchmark-fee and visibility/geography sources.
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_benchmark_fee, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_benchmark_fee, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.60*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_benchmark_fee, 60), subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(asia_pacific_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(ts_delta(asia_pacific_sales_exposure, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.60*group_rank(ts_delta(asia_pacific_sales_exposure, 60), subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(-ts_delta(mdl77_400_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-ts_delta(mdl77_400_visiratio, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.60*group_rank(-ts_delta(mdl77_400_visiratio, 60), subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Geography variants that had strong metrics but either self-correlated or
+# failed sub-universe under SUBINDUSTRY.
+0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(north_america_sales_exposure, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Adjacent sensitivity-factor versions.
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2globaldevnorthamericasensitivityfactor_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2globaldevnorthamericasensitivityfactor_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

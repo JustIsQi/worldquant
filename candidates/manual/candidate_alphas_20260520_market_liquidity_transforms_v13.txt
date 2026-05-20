@@ -1,0 +1,30 @@
+# 2026-05-20 v13: MARKET liquidity transforms around today's successful fields.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Avoid global rank, which was too weak. Use group_rank with time-series
+# transforms and different stabilizers to reduce self-correlation.
+
+# netcashp family: today's MARKET ACTIVE used level + VWAP 10-day reversal.
+group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)
+0.90*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.10*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(ts_rank(mdl77_2liquidityriskfactor_netcashp, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_zscore(mdl77_2liquidityriskfactor_netcashp, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2liquidityriskfactor_netcashp, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# pcurlia family: today's MARKET ACTIVE used negative level with a small VWAP stabilizer.
+group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)
+0.90*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.10*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-ts_rank(mdl77_2liquidityriskfactor_pcurlia, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_zscore(mdl77_2liquidityriskfactor_pcurlia, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_pcurlia, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Adjacent high-metric fields with transformations instead of level repeats.
+0.70*group_rank(-ts_rank(mdl77_2liquidityriskfactor_booklev, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_zscore(mdl77_2liquidityriskfactor_booklev, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_rank(mdl77_2liquidityriskfactor_voldiff_pc, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_zscore(mdl77_2liquidityriskfactor_voldiff_pc, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_2liquidityriskfactor_covol, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_zscore(mdl77_2liquidityriskfactor_covol, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,42 @@
+# 2026-05-19 GOOD/EXCELLENT hunt v1.
+# Goal: find at least one newly submit-able GOOD/EXCELLENT alpha before filling
+# the remaining ACTIVE count. Use TOP1000/SUBINDUSTRY first to rescue strong
+# signals that failed TOP3000 sub-universe checks or self-correlation.
+
+# Sales surprise family: TOP3000 had GOOD metrics but LOW_SUB_UNIVERSE_SHARPE.
+0.70*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 10), subindustry)
+0.60*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-ts_delta(close, 20), subindustry)
+0.70*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 10), subindustry)
+0.60*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.40*group_rank(-ts_delta(close, 20), subindustry)
+0.70*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 10), subindustry)
+0.60*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-ts_delta(close, 20), subindustry)
+
+# Cash-flow surprise family: strong but self-correlated yesterday; vary the
+# stabilizer and add quality anchors to change exposure.
+0.55*group_rank(-standardized_unexpected_cash_flow, subindustry)+0.45*group_rank(mdl77_2mqf_ocfast, subindustry)
+0.55*group_rank(-standardized_unexpected_cash_flow, subindustry)+0.45*group_rank(-mdl77_2earningsqualityfactor_ttmaccu, subindustry)
+0.60*group_rank(-standardized_unexpected_cash_flow, subindustry)+0.40*group_rank(-ts_delta(close, 20), subindustry)
+0.55*group_rank(-mdl77_2earningmomentumfactor400_fcus, subindustry)+0.45*group_rank(mdl77_2mqf_ocfast, subindustry)
+0.55*group_rank(-mdl77_2earningmomentumfactor400_fcus, subindustry)+0.45*group_rank(-mdl77_2earningsqualityfactor_ttmaccu, subindustry)
+0.60*group_rank(-mdl77_2earningmomentumfactor400_fcus, subindustry)+0.40*group_rank(-ts_delta(close, 20), subindustry)
+
+# Cash-flow value and profitability quality fields, not direct rel5yfwdep.
+0.70*group_rank(mdl77_2earningmomentumfactor400_fcfroey1p, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_2earningmomentumfactor400_fcfroey1p, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(fcf_yield_multiplied_forward_roe, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-fcf_yield_multiplied_forward_roe, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(mdl77_2valueanalystmodel_qva_cashflow, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_2valueanalystmodel_qva_cashflow, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(mdl77_valueanalystmodelqva_cashflow, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_valueanalystmodelqva_cashflow, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+
+# Growth and estimate-dispersion fields with plausible GOOD upside.
+0.70*group_rank(long_term_growth_forecast_2, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-long_term_growth_forecast_2, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(mdl77_growthanalystmodel_qga_ltepssurprise, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_growthanalystmodel_qga_ltepssurprise, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(mdl77_oearningmomentumfactor_spe1yfvc, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_oearningmomentumfactor_spe1yfvc, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)

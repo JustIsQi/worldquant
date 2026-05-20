@@ -1,0 +1,13 @@
+# 2026-05-17 option-volatility rescue candidates.
+# The broad low-use run found positive voldiff candidates with good Sharpe/Fitness
+# but LOW_SUB_UNIVERSE_SHARPE. Reduce option weight and vary the value anchor.
+
+0.50*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.50*group_rank(mdl77_liquidityriskfactor_voldiff_pc, subindustry)
+0.45*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.55*group_rank(mdl77_liquidityriskfactor_voldiff_pc, subindustry)
+0.50*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.50*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)
+0.45*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.55*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)
+
+0.50*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.50*group_rank(mdl77_liquidityriskfactor_voldiff_pc, subindustry)
+0.45*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.55*group_rank(mdl77_liquidityriskfactor_voldiff_pc, subindustry)
+0.50*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.50*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)
+0.45*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.55*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)

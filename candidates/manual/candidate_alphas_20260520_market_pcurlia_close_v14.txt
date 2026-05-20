@@ -1,0 +1,20 @@
+# 2026-05-20 v14: last-mile MARKET pcurlia close-stabilizer variants.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# v13 success: 0.65 * -pcurlia + 0.35 * close 5-day reversal.
+
+0.70*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.55*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.45*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.35*group_rank(-ts_delta(close, 10), subindustry)
+0.60*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.40*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.30*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(-mdl177_2_liquidityriskfactor_pcurlia, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl177_2_liquidityriskfactor_pcurlia, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_liquidityriskfactor_pcurlia_alt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl177_liquidityriskfactor_pcurlia_alt, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+
+# Related field that had high metrics but self-correlation; use close stabilizer.
+0.65*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_booklev, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_2liquidityriskfactor_booklev, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)

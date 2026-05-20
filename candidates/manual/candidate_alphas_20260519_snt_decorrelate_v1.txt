@@ -1,0 +1,34 @@
+# 2026-05-19 SNT1 decorrelation after GOOD candidates failed self-correlation.
+# Base SNT1 forms had GOOD-grade metrics but submit self-correlation around
+# 0.76-0.78. Vary stabilizer/window/price anchor rather than sweeping tiny
+# weights around the exact rejected expressions.
+
+# snt1_d1_downtargetpercent was the strongest GOOD candidate.
+group_rank(snt1_d1_downtargetpercent, subindustry)
+0.75*group_rank(snt1_d1_downtargetpercent, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(snt1_d1_downtargetpercent, subindustry)+0.35*group_rank(-ts_delta(vwap, 5), subindustry)
+0.65*group_rank(snt1_d1_downtargetpercent, subindustry)+0.35*group_rank(-(close-open), subindustry)
+
+# Negative net target percent: lower net optimism from analysts.
+group_rank(-snt1_d1_nettargetpercent, subindustry)
+0.75*group_rank(-snt1_d1_nettargetpercent, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(-snt1_d1_nettargetpercent, subindustry)+0.35*group_rank(-ts_delta(vwap, 5), subindustry)
+0.65*group_rank(-snt1_d1_nettargetpercent, subindustry)+0.35*group_rank(-(close-open), subindustry)
+
+# Negative up-target percent: avoid repeating exact close-5 stabilizer.
+group_rank(-snt1_d1_uptargetpercent, subindustry)
+0.75*group_rank(-snt1_d1_uptargetpercent, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(-snt1_d1_uptargetpercent, subindustry)+0.35*group_rank(-ts_delta(vwap, 5), subindustry)
+0.65*group_rank(-snt1_d1_uptargetpercent, subindustry)+0.35*group_rank(-(close-open), subindustry)
+
+# Sell recommendation percentage.
+group_rank(snt1_d1_sellrecpercent, subindustry)
+0.75*group_rank(snt1_d1_sellrecpercent, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(snt1_d1_sellrecpercent, subindustry)+0.35*group_rank(-ts_delta(vwap, 5), subindustry)
+0.65*group_rank(snt1_d1_sellrecpercent, subindustry)+0.35*group_rank(-(close-open), subindustry)
+
+# Earnings revision.
+group_rank(snt1_d1_earningsrevision, subindustry)
+0.75*group_rank(snt1_d1_earningsrevision, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.65*group_rank(snt1_d1_earningsrevision, subindustry)+0.35*group_rank(-ts_delta(vwap, 5), subindustry)
+0.65*group_rank(snt1_d1_earningsrevision, subindustry)+0.35*group_rank(-(close-open), subindustry)

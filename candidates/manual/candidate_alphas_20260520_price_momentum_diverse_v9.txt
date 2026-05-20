@@ -1,0 +1,39 @@
+# 2026-05-20 v9: diverse long-horizon price momentum and risk-adjusted momentum.
+# Intended settings: USA TOP3000, INDUSTRY, decay 20, truncation 0.08.
+# This is a diversification attempt after borrow/geography/liquidity/history
+# families became self-correlated or weak.
+
+0.70*group_rank(mdl77_2pricemomentumfactor_alpha60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_alpha60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_chg6malpha18m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_chg6malpha18m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_normalmf60d, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_normalmf60d, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_rationalalpha, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_rationalalpha, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_relpricestrength_, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_relpricestrength_, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_sortinoratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_sortinoratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_sharpe36m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_sharpe36m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_varresirtn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_varresirtn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_slope52wp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_slope52wp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_actrtn12m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_actrtn12m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_volpre6m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_volpre6m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Older namespace variants for fields not present in mdl77_2.
+0.70*group_rank(mdl177_2_pricemomentumfactor_p50_200ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_pricemomentumfactor_p50_200ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl177_2_pricemomentumfactor_rsi26w, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_pricemomentumfactor_rsi26w, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl177_2_pricemomentumfactor_ff10mrtn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_pricemomentumfactor_ff10mrtn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl177_2_pricemomentumfactor_rtn39w, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_pricemomentumfactor_rtn39w, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl177_2_pricemomentumfactor_rtn2nd6m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_pricemomentumfactor_rtn2nd6m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

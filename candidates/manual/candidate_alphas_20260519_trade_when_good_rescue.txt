@@ -1,0 +1,10 @@
+# 2026-05-19 trade_when rescue for GOOD near-misses.
+# Use high-volume gating to change holding path and reduce self-correlation.
+
+trade_when(volume>adv20, 0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.55*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.10*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.60*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.55*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.60*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+
+trade_when(volume>adv20, 0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.40*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.40*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry), -1)
+trade_when(volume>adv20, 0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.45*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.40*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry), -1)

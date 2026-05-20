@@ -1,0 +1,41 @@
+# 2026-05-19 management / quality / cash-flow probe.
+# Distinct from analyst sentiment and sales surprise. Screen both signs for
+# ambiguous model ranks.
+
+# Management signaling / balance-sheet signaling.
+0.70*group_rank(mdl77_managementsignalingmodule, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_managementsignalingmodule, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2valuemomemtummodel_managementsignalingmodule, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2valuemomemtummodel_managementsignalingmodule, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_valueanalystmodel_qva_mgtsignaling, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_valueanalystmodel_qva_mgtsignaling, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_ovalueanalystmodel_qva_yoychgshares, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_ovalueanalystmodel_qva_yoychgshares, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_valueanalystmodelqva_chginv, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_valueanalystmodelqva_chginv, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Cash-flow profitability / quality.
+0.70*group_rank(mdl77_2mqf_cfroi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_cfroi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_ocfast, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_ocfast, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_roic, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_roic, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_niper, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_niper, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Operating efficiency and asset structure.
+0.70*group_rank(mdl77_2mqf_bmpo, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_bmpo, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_astto, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_astto, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_aoer, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_aoer, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Sales / cash-flow valuation but not rel5yfwdep.
+0.70*group_rank(time_weighted_cash_flow_to_price, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-time_weighted_cash_flow_to_price, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(time_weighted_ebitda_to_enterprise_value_2, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-time_weighted_ebitda_to_enterprise_value_2, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ttm_sales_to_enterprise_value, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ttm_sales_to_enterprise_value, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -36,8 +36,8 @@ class RunConfig:
     target_active: int = 1
     target_active_per_week: int = 2
     daily_budget_minutes: int = 90
-    workers: int = 1
-    max_inflight: int = 1
+    workers: int = 3
+    max_inflight: int = 3
     auto_submit: bool = True
     skip_before: int = 1
     limit: int = 0
@@ -270,8 +270,8 @@ def load_config(path: Path) -> DailyConfig:
         target_active=int(run_data.get("target_active", 1)),
         target_active_per_week=int(run_data.get("target_active_per_week", 2)),
         daily_budget_minutes=int(run_data.get("daily_budget_minutes", 90)),
-        workers=int(run_data.get("workers", 1)),
-        max_inflight=int(run_data.get("max_inflight", 1)),
+        workers=int(run_data.get("workers", 3)),
+        max_inflight=int(run_data.get("max_inflight", 3)),
         auto_submit=bool(run_data.get("auto_submit", True)),
         skip_before=int(run_data.get("skip_before", 1)),
         limit=int(run_data.get("limit", 0)),

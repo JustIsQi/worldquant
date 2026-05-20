@@ -1,0 +1,35 @@
+# 2026-05-20 v20: two-more goal, new-source batch.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Avoid pcurlia/covol/netcashp/monchgsip weight sweeps after the previous
+# 10-alpha goal. Focus on option implied-volatility structure and less-used
+# earnings momentum fields.
+
+# Option implied-volatility skew and put/call structure.
+0.65*group_rank(implied_volatility_mean_skew_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-implied_volatility_mean_skew_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_mean_skew_90, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-implied_volatility_mean_skew_90, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(implied_volatility_mean_skew_60, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(implied_volatility_mean_skew_60, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_put_60-implied_volatility_call_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_call_60-implied_volatility_put_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_put_90-implied_volatility_call_90, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_call_90-implied_volatility_put_90, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+trade_when(volume>adv20, 0.65*group_rank(implied_volatility_mean_skew_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.65*group_rank(-implied_volatility_mean_skew_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+# Less-used earnings momentum and surprise fields.
+0.65*group_rank(mdl77_2earningmomentumfactor400_qepsferr, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_qepsferr, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_sue, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_sue, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_surp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_surp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_fcfroey1p, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_fcfroey1p, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_stdevfy1epsp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_stdevfy1epsp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_spe1yfvc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_spe1yfvc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2surpriseanalystmodel_qsa_efficiency, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2surpriseanalystmodel_qsa_efficiency, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

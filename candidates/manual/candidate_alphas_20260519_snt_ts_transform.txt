@@ -1,0 +1,21 @@
+# 2026-05-19 SNT time-series transform decorrelation.
+# Current-level SNT signals were predictive but self-correlated. Try changes,
+# ranks, and z-scores to capture movement in analyst sentiment instead of level.
+
+0.65*group_rank(ts_delta(snt1_d1_downtargetpercent, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(snt1_d1_nettargetpercent, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(snt1_d1_uptargetpercent, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(snt1_d1_sellrecpercent, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(snt1_d1_earningsrevision, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(ts_zscore(snt1_d1_downtargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_zscore(snt1_d1_nettargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_zscore(snt1_d1_uptargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_zscore(snt1_d1_earningsrevision, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(ts_rank(snt1_d1_downtargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_rank(snt1_d1_nettargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_rank(snt1_d1_uptargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_rank(snt1_d1_sellrecpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_rank(snt1_d1_earningsrevision, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

@@ -1,0 +1,43 @@
+# 2026-05-19 final last-mile: non-SNT news/event microstructure fields.
+# The GOOD target is already satisfied. These candidates aim to add two more
+# low-correlation ACTIVE alphas from a genuinely different information source.
+
+# News event volume / attention structure.
+0.70*group_rank(news_ratio_vol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_ratio_vol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_vol_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_vol_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_close_vol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_close_vol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_curr_vol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_curr_vol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# News event price shock / reversal.
+0.70*group_rank(news_open_gap, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_open_gap, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_max_dn_ret, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_max_dn_ret, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_max_up_ret, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_max_up_ret, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_prev_day_ret, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_prev_day_ret, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# News intraday percentile moves.
+0.70*group_rank(news_pct_120min, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_pct_120min, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_pct_60min, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_pct_60min, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_mins_20_pct_dn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_mins_20_pct_dn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_mins_20_pct_up, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_mins_20_pct_up, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# News event dispersion and short-interest context.
+0.70*group_rank(news_range_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_range_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_high_exc_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_high_exc_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_low_exc_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_low_exc_stddev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(news_short_interest, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-news_short_interest, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

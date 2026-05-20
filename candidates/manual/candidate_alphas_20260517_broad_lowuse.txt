@@ -1,0 +1,31 @@
+# 2026-05-17 broad low-use expansion for the final ACTIVE.
+# Focus on option volatility/skew and low-user earnings/revision fields, lightly
+# anchored by relative value so the signal is not pure high-turnover price noise.
+
+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.60*group_rank(-mdl77_liquidityriskfactor_voldiff_pc, subindustry)
+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.60*group_rank(mdl77_liquidityriskfactor_voldiff_pc, subindustry)
+0.40*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.60*group_rank(-mdl77_voldiff_pc, subindustry)
+0.40*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.60*group_rank(mdl77_voldiff_pc, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(-mdl77_2liquidityriskfactor_voldiff_pc, subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.65*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)
+
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_2liquidityriskfactor_atmputvol, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_2liquidityriskfactor_atmputvol, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(-mdl77_liquidityriskfactor_atmcallvol, subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.70*group_rank(mdl77_liquidityriskfactor_atmcallvol, subindustry)
+
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-mdl77_pricemomentumfactor_skew90drtn, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(mdl77_pricemomentumfactor_skew90drtn, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(-mdl77_opricemomentumfactor_skew90cortn, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.75*group_rank(mdl77_opricemomentumfactor_skew90cortn, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.80*group_rank(-mdl77_ooearningsmomemtummodel_fc_fqsurstd, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.80*group_rank(-mdl77_ooearningsmomemtummodel_fc_rev3y2, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.80*group_rank(-mdl77_oearningmomentumfactor_pelh, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.80*group_rank(-mdl77_2earningmomentumfactor400_stockrating, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.80*group_rank(mdl77_2earningmomentumfactor400_stockrating, subindustry)
+
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-mdl77_2garpanalystmodel_qgp_growthval, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(mdl77_2garpanalystmodel_qgp_growthval, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(-mdl77_valueanalystmodelqva_earnquality, subindustry)
+0.25*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.75*group_rank(mdl77_valueanalystmodelqva_earnquality, subindustry)

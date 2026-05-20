@@ -1,0 +1,35 @@
+# 2026-05-19 SNT long-window decorrelation v2.
+# Continue from active kqnGaJzg and vR5GE9Nb. Avoid current-level SNT and
+# avoid close-5 as the only stabilizer.
+
+group_rank(ts_zscore(snt1_d1_sellrecpercent, 120), subindustry)
+0.70*group_rank(ts_zscore(snt1_d1_sellrecpercent, 120), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(ts_zscore(snt1_d1_sellrecpercent, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(ts_rank(snt1_d1_sellrecpercent, 120), subindustry)
+0.70*group_rank(ts_rank(snt1_d1_sellrecpercent, 120), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(ts_rank(snt1_d1_sellrecpercent, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(ts_delta(snt1_d1_sellrecpercent, 60), subindustry)
+0.70*group_rank(ts_delta(snt1_d1_sellrecpercent, 60), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(ts_delta(snt1_d1_sellrecpercent, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(-ts_delta(snt1_d1_nettargetpercent, 60), subindustry)
+0.70*group_rank(-ts_delta(snt1_d1_nettargetpercent, 60), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(-ts_delta(snt1_d1_nettargetpercent, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(-ts_delta(snt1_d1_nettargetpercent, 120), subindustry)
+0.70*group_rank(-ts_delta(snt1_d1_nettargetpercent, 120), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(-ts_delta(snt1_d1_nettargetpercent, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(ts_rank(snt1_d1_downtargetpercent, 120), subindustry)
+0.70*group_rank(ts_rank(snt1_d1_downtargetpercent, 120), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(ts_rank(snt1_d1_downtargetpercent, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(-ts_rank(snt1_d1_uptargetpercent, 120), subindustry)
+0.70*group_rank(-ts_rank(snt1_d1_uptargetpercent, 120), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(-ts_rank(snt1_d1_uptargetpercent, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+group_rank(ts_delta(snt1_d1_downtargetpercent, 60), subindustry)
+0.70*group_rank(ts_delta(snt1_d1_downtargetpercent, 60), subindustry)+0.30*group_rank(-(close-open), subindustry)
+0.70*group_rank(ts_delta(snt1_d1_downtargetpercent, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,31 @@
+# 2026-05-19 FANGMA model low-use probe.
+# These fields are a distinct model family from SNT1, sales surprise, and
+# rel5y value anchors. Screen first; only submit if metrics are strong.
+
+0.65*group_rank(mdl77_fangma_emf20, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_emf20, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_emf3, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_emf3, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_emf4, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_emf4, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_emf15, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_emf15, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_emf28, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_emf28, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_fangma_mam5, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_mam5, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_mam6, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_mam6, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_mam16, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_mam16, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_fangma_dvm1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_dvm1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_dvm4, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_dvm4, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_fangma_gpam1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_gpam1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_fangma_gpam5, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_fangma_gpam5, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,28 @@
+# 2026-05-19 raw analyst revision fields.
+# SNT1 and historical GOOD candidates are self-correlated. Try adjacent raw
+# analyst revision fields that are not the same SNT1 signal family.
+
+0.65*group_rank(analyst_revision_rank_derivative, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-analyst_revision_rank_derivative, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(analyst_revision_rank_derivative, subindustry)
+group_rank(-analyst_revision_rank_derivative, subindustry)
+
+0.65*group_rank(earnings_revision_magnitude, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-earnings_revision_magnitude, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(net_fy1_analyst_revisions, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-net_fy1_analyst_revisions, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(net_num_revisions_fy1, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-net_num_revisions_fy1, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(net_num_revisions_fy1_earnings, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-net_num_revisions_fy1_earnings, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(six_month_avg_fy1_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-six_month_avg_fy1_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(three_month_fy1_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-three_month_fy1_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(three_month_fy2_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-three_month_fy2_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(time_weighted_eps_stddev_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-time_weighted_eps_stddev_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

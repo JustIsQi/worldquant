@@ -277,7 +277,8 @@ def run_candidates(
     print(f"run_dir={run_dir}", flush=True)
     print(f"already_active_history={sorted(already_active)}", flush=True)
     print(
-        f"queued={len(candidates)} workers={config.run.workers} auto_submit={config.run.auto_submit}",
+        f"queued={len(candidates)} workers={config.run.workers} "
+        f"max_inflight={config.run.max_inflight} auto_submit={config.run.auto_submit}",
         flush=True,
     )
 

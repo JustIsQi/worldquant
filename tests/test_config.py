@@ -31,6 +31,8 @@ candidates:
         self.assertEqual(config.brain.decay, 12)
         self.assertEqual(config.run.target_active, 5)
         self.assertEqual(config.run.daily_budget_minutes, 30)
+        self.assertEqual(config.run.workers, 3)
+        self.assertEqual(config.run.max_inflight, 3)
         self.assertFalse(config.run.auto_submit)
         self.assertEqual(config.candidates.manual_globs, ["a/*.txt", "b/*.txt"])
         self.assertEqual(config.candidates.mix_weights, [0.8, 0.2])

@@ -1,0 +1,58 @@
+# 2026-05-20 v6: fresh low-use quality, growth, and analyst modules.
+# Intended settings: USA TOP3000, INDUSTRY, decay 20, truncation 0.08.
+# Goal: move away from crowded geography, short-fee, monchgsip, salesurp, and SNT level signals.
+
+# Earnings quality and accounting quality fields, using a slower VWAP stabilizer.
+0.70*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_ccacw, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_ccacw, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_uaccl, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_uaccl, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_wcacc, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_wcacc, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_salerec, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_salerec, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_saleeps, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_saleeps, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_opincltd, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_opincltd, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Management quality factor fields: cash-flow efficiency and operating quality.
+0.70*group_rank(mdl77_2mqf_ocfast, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_ocfast, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_ocfroi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_ocfroi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_cfroi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_cfroi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_cfita, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_cfita, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_chgnoa, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_chgnoa, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2mqf_roic, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2mqf_roic, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Historical growth and stability fields.
+0.70*group_rank(mdl77_2historicalgrowthfactor_pctchgocf, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_pctchgocf, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2historicalgrowthfactor_pctchgfcf, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_pctchgfcf, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2historicalgrowthfactor_salesaccel4q, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_salesaccel4q, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Analyst momentum module fields that are not direct sales surprise or SNT levels.
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_earnexp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_earnexp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_estrev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_estrev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_ratingchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_ratingchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_ttmfcfchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_ttmfcfchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Value analyst module variants with cash-flow and management-signaling content.
+0.70*group_rank(mdl77_2valueanalystmodel_qva_cashflow, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2valueanalystmodel_qva_cashflow, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2valueanalystmodel_qva_mgtsignaling, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2valueanalystmodel_qva_mgtsignaling, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

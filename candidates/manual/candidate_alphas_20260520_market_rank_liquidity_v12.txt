@@ -1,0 +1,26 @@
+# 2026-05-20 v12: MARKET-neutralized global-rank liquidity variants.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# This changes expression shape from subindustry group_rank to global rank,
+# using fields that had strong MARKET metrics or produced today's ACTIVE alphas.
+
+0.70*rank(mdl77_2liquidityriskfactor_netcashp)+0.30*(-rank(ts_delta(vwap, 10)))
+0.80*rank(mdl77_2liquidityriskfactor_netcashp)+0.20*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_netcashp)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_pcurlia)+0.30*(-rank(ts_delta(vwap, 10)))
+0.80*rank(-mdl77_2liquidityriskfactor_pcurlia)+0.20*(-rank(ts_delta(vwap, 10)))
+0.85*rank(-mdl77_2liquidityriskfactor_pcurlia)+0.15*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_beta)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_betasigma)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_covol)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(mdl77_2liquidityriskfactor_voldiff_pc)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_booklev)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_sigma)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl77_2liquidityriskfactor_impduration)+0.30*(-rank(ts_delta(vwap, 10)))
+
+# Alternate namespaces for today's MARKET winners.
+0.70*rank(mdl177_2_liquidityriskfactor_netcashp)+0.30*(-rank(ts_delta(vwap, 10)))
+0.80*rank(mdl177_2_liquidityriskfactor_netcashp)+0.20*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl177_2_liquidityriskfactor_pcurlia)+0.30*(-rank(ts_delta(vwap, 10)))
+0.80*rank(-mdl177_2_liquidityriskfactor_pcurlia)+0.20*(-rank(ts_delta(vwap, 10)))
+0.70*rank(mdl177_liquidityriskfactor_netcashp_alt)+0.30*(-rank(ts_delta(vwap, 10)))
+0.70*rank(-mdl177_liquidityriskfactor_pcurlia_alt)+0.30*(-rank(ts_delta(vwap, 10)))

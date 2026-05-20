@@ -1,0 +1,36 @@
+# 2026-05-20 v3: strongest v1/v2 expressions under INDUSTRY neutralization.
+# Intended settings: USA TOP3000, INDUSTRY, decay 20, truncation 0.08.
+
+# Today's confirmed winners and close variants.
+0.80*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# High-metric geography candidates that failed sub-universe or self-correlation under SUBINDUSTRY.
+0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-ts_delta(latin_america_sales_exposure, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(asia_pacific_sales_exposure, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_emeasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Low-turnover liquidity risk from yesterday's last-mile ACTIVE family.
+0.70*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_bdi, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_cashratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_qr, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_ocfratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Analyst/SNT candidates with high metrics under SUBINDUSTRY but self-correlation risk.
+0.65*group_rank(snt1_d1_dtstsespe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-six_month_avg_fy1_eps_revision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-analyst_revision_rank_derivative, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(snt1_d1_sellrecpercent, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_rank(snt1_d1_earningsrevision, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

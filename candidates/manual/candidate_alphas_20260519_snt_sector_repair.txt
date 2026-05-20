@@ -1,0 +1,11 @@
+# 2026-05-19 SNT1 sector-neutral repair.
+# SUBINDUSTRY versions had GOOD metrics but self-correlation slightly above
+# limit. Try final SECTOR neutralization to alter exposures.
+
+0.65*group_rank(snt1_d1_downtargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_nettargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_uptargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_sellrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_earningsrevision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_cored1_score, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_dtstsespe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

@@ -21,8 +21,8 @@ run:
   target_active: 999
   target_active_per_week: 2
   daily_budget_minutes: 0
-  workers: 1
-  max_inflight: 1
+  workers: 3
+  max_inflight: 3
   auto_submit: true
   skip_before: 1
   limit: 0

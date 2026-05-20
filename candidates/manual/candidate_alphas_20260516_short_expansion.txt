@@ -1,0 +1,25 @@
+# 2026-05-16 short-lending expansion.
+# Extends the dmd_supply hit into adjacent short sentiment fields with lower turnover
+# than option volatility spread candidates.
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_dmd_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_dmd_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_inv_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_inv_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_lend_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_lend_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_onloan_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_onloan_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_conc_ratio, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_conc_ratio, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_dmd_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_dmd_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_inv_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_inv_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_lend_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_lend_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_onloan_conc, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_onloan_conc, subindustry)

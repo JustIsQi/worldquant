@@ -1,0 +1,56 @@
+# 2026-05-19 pivot after sales surprise LOW_SUB_UNIVERSE_SHARPE block.
+# Goal: find at least one submit-able GOOD/EXCELLENT from genuinely different
+# information sources: option structure, volatility/skew, and short/borrow.
+# Avoid rel5yfwdep and salesurp weight tuning.
+
+# Option put/call and volatility structure. Use slower price stabilizer to keep
+# turnover under control.
+0.85*group_rank(out_of_money_put_call_ratio, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-out_of_money_put_call_ratio, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.75*group_rank(out_of_money_put_call_ratio, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-out_of_money_put_call_ratio, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+
+0.85*group_rank(mdl77_2400_ctpmto, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_2400_ctpmto, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.75*group_rank(mdl77_2400_ctpmto, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl77_2400_ctpmto, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+
+0.85*group_rank(mdl77_2400_impvol, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_2400_impvol, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.75*group_rank(mdl77_2400_impvol, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl77_2400_impvol, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+
+0.85*group_rank(mdl77_2400_rmi, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_2400_rmi, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.75*group_rank(mdl77_2400_rmi, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl77_2400_rmi, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+
+# Option liquidity vol fields.
+0.85*group_rank(mdl77_2liquidityriskfactor_atmputvol, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_2liquidityriskfactor_atmputvol, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(mdl77_liquidityriskfactor_atmcallvol, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_liquidityriskfactor_atmcallvol, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.75*group_rank(mdl77_2liquidityriskfactor_atmcallvol, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl77_2liquidityriskfactor_atmcallvol, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+
+# 90-day skew returns, both model families.
+0.85*group_rank(mdl77_pricemomentumfactor_skew90drtn, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_pricemomentumfactor_skew90drtn, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(mdl77_opricemomentumfactor_skew90cortn, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.85*group_rank(-mdl77_opricemomentumfactor_skew90cortn, subindustry)+0.15*group_rank(-ts_delta(close, 20), subindustry)
+0.75*group_rank(mdl77_2pricemomentumfactor_skew90drtn, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl77_2pricemomentumfactor_skew90drtn, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(mdl77_2pricemomentumfactor_skew90cortn, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl77_2pricemomentumfactor_skew90cortn, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+
+# Short/borrow fields without rel5yfwdep anchor.
+0.80*group_rank(mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(-mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(mdl77_devnorthamericashortsentimentfactor_dmd_conc, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(-mdl77_devnorthamericashortsentimentfactor_dmd_conc, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(mdl77_devnorthamericashortsentimentfactor_dmd_supply, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(-mdl77_devnorthamericashortsentimentfactor_dmd_supply, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(-mdl77_devnorthamericashortsentimentfactor_tni_ths, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(mdl77_2liquidityriskfactor_sip, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)
+0.80*group_rank(-mdl77_2liquidityriskfactor_sip, subindustry)+0.20*group_rank(-ts_delta(close, 20), subindustry)

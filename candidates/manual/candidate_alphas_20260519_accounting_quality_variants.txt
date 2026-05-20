@@ -1,0 +1,31 @@
+# 2026-05-19 accounting-quality variants.
+# Rationale:
+# - mdl77_oearningsqualityfactor_lccau passed with low self-correlation.
+# - mdl77_earningsqualityfactor_cre had better Sharpe/Fitness but failed
+#   self-correlation. Try purer and mixed versions under different settings.
+
+# Pure and high-weight CRE variants.
+group_rank(mdl77_earningsqualityfactor_cre, subindustry)
+group_rank(-mdl77_earningsqualityfactor_cre, subindustry)
+0.85*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.15*group_rank(-ts_delta(vwap, 20), subindustry)
+0.85*group_rank(-mdl77_earningsqualityfactor_cre, subindustry)+0.15*group_rank(-ts_delta(vwap, 20), subindustry)
+0.60*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+0.60*group_rank(-mdl77_earningsqualityfactor_cre, subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# LCCAU variants around the passed ACTIVE.
+group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)
+0.85*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.15*group_rank(-ts_delta(vwap, 20), subindustry)
+0.60*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_lccau, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-mdl77_earningsqualityfactor_lccau, subindustry)+0.15*group_rank(-ts_delta(vwap, 20), subindustry)
+
+# Combine strong CRE with low-correlation LCCAU.
+0.45*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.35*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.35*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.45*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.50*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.50*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)
+
+# Adjacent low-use accounting quality fields that were near, but not over, the gate.
+0.70*group_rank(-mdl77_earningsqualityfactor_rau, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_oearningsqualityfactor_yoychgaa, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_cogsinvt, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_cogsinvt, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,23 @@
+# 2026-05-19 blend strong sales surprise with slower anchors to repair
+# LOW_SUB_UNIVERSE_SHARPE while keeping GOOD/EXCELLENT-grade metrics.
+
+0.50*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.50*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.50*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+
+0.50*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.50*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.30*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.50*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_industryrrelativevaluefactor_curindfwdep__alt, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+
+0.50*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.50*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.30*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.50*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)

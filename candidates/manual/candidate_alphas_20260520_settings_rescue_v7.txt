@@ -1,0 +1,44 @@
+# 2026-05-20 v7: settings rescue for high-metric candidates.
+# Intended settings: USA TOP3000, INDUSTRY, decay 40, truncation 0.03.
+# Purpose: change holding shape for candidates that had adequate Sharpe/Fitness
+# but failed SELF_CORRELATION or LOW_SUB_UNIVERSE_SHARPE under decay 20/trunc 0.08.
+
+# Liquidity-risk fields with strong metrics but self-correlation under v4/v5.
+0.70*group_rank(-mdl77_2liquidityriskfactor_beta, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_betasigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_rerror60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_booklev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_cfleverage, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Today's ACTIVE-adjacent fields with lower price weight to reduce overlap.
+0.85*group_rank(-mdl77_2liquidityriskfactor_sigma, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-mdl77_2liquidityriskfactor_impduration, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Strong short/borrow and geography variants, included only because settings differ materially.
+0.75*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.75*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# v6 historical-growth near-pass candidates.
+0.70*group_rank(-mdl77_2historicalgrowthfactor_salesaccel4q, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Analyst momentum module candidates likely to have stronger metrics than MQF.
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_earnexp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_earnexp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_estrev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_estrev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_ratingchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_ratingchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2momemtumanalystmodel_qma_ttmfcfchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2momemtumanalystmodel_qma_ttmfcfchg, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,21 @@
+# 2026-05-16 settings expansion for promising short/option directions.
+# Run this file across alternate universe/neutralization settings.
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_lend_supply, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_devnorthamericashortsentimentfactor_lend_supply, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.75*group_rank(-mdl177_devnorthamericashortsentimentfactor_lend_supply, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.75*group_rank(-mdl177_devnorthamericashortsentimentfactor_dmd_conc, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_onloan_conc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_devnorthamericashortsentimentfactor_onloan_conc, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.75*group_rank(-mdl177_devnorthamericashortsentimentfactor_onloan_conc, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_inv_conc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_devnorthamericashortsentimentfactor_inv_conc, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.75*group_rank(-mdl177_devnorthamericashortsentimentfactor_inv_conc, subindustry)
+
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_pricemomemtummodel_voldiff_pc, subindustry)
+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.75*group_rank(-mdl177_pricemomemtummodel_voldiff_pc, subindustry)

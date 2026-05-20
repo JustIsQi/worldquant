@@ -1,0 +1,50 @@
+# 2026-05-20 v8: historical growth expansion after slope4qocf3y became ACTIVE.
+# Intended settings: USA TOP3000, INDUSTRY, decay 20, truncation 0.08.
+# Use simple historical-growth and cash-flow trend fields to avoid crowded
+# short-fee, geography, salesurp, and liquidity-risk self-correlation.
+
+# Simple ranks first: lower overlap with the common short-reversal template.
+group_rank(mdl77_2historicalgrowthfactor_slope4qcf3y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_slope4qcf3y, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_slope4qfcf3y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_slope4qfcf3y, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_slope4qeps3y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_slope4qeps3y, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_slope4qsales3y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_slope4qsales3y, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_rsqr4qsales3y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_rsqr4qsales3y, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_fcfequity, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_fcfequity, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_susgrowth, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_susgrowth, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_reinrate, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_reinrate, subindustry)
+group_rank(mdl77_2historicalgrowthfactor_saleg5y, subindustry)
+group_rank(-mdl77_2historicalgrowthfactor_saleg5y, subindustry)
+
+# Add a small VWAP reversal stabilizer for the best interpretable growth fields.
+0.80*group_rank(mdl77_2historicalgrowthfactor_slope4qcf3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_slope4qcf3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_slope4qfcf3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_slope4qfcf3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_slope4qeps3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_slope4qeps3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_slope4qsales3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_slope4qsales3y, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_pctchg3yocf, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_pctchg3yocf, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_pctchg3yfcf, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_pctchg3yfcf, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_salesaccel4q, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_salesaccel4q, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(mdl77_2historicalgrowthfactor_totalsaleg, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_2historicalgrowthfactor_totalsaleg, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Alternate namespace forms for the successful slope family.
+0.70*group_rank(mdl77_historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl177_2_historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_historicalgrowthfactor_slope4qocf3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

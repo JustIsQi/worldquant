@@ -1,0 +1,31 @@
+# 2026-05-20 v19: last-mile MARKET candidates for the 10th ACTIVE.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Context: direct liquidity-risk level variants are now crowded, so use
+# volume-gated close-stabilized shapes and a few less exhausted option/short
+# sources instead of tiny weight retuning.
+
+# MARKET + volume-gated variants of the fields that worked under MARKET.
+trade_when(volume>adv20, 0.65*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.60*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.65*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.60*group_rank(-mdl77_2liquidityriskfactor_covol, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.70*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.60*group_rank(mdl77_2liquidityriskfactor_netcashp, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+# Near-threshold put/call volume difference family. Earlier MARKET + VWAP was
+# strong but failed self-correlation narrowly; use close and time transforms.
+0.65*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+trade_when(volume>adv20, 0.65*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+0.65*group_rank(ts_rank(mdl77_2liquidityriskfactor_voldiff_pc, 120), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_zscore(mdl77_2liquidityriskfactor_voldiff_pc, 120), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+# Less exhausted option/short-interest sources with close stabilizers.
+0.70*group_rank(out_of_money_put_call_ratio, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-out_of_money_put_call_ratio, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_2400_ctpmto, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2400_ctpmto, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_devnorthamericashortsentimentfactor_conc_ratio, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_devnorthamericashortsentimentfactor_tni_ths, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)

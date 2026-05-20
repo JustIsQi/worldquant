@@ -1,0 +1,48 @@
+# 2026-05-18 last mile for the sixth additional ACTIVE.
+# More dispersed low-use model77 fields after earnings-revision variants and
+# historical candidates were mostly rejected by SELF_CORRELATION.
+
+0.65*group_rank(mdl77_2surpriseanalystmodel_qsa_composite, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2surpriseanalystmodel_qsa_composite, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_surpriseanalystmodel_qsa_surpsn, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_surpriseanalystmodel_qsa_surpsn, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_momemtumanalystmodel_qma_mktresponse, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_momemtumanalystmodel_qma_mktresponse, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2momemtumanalystmodel_qma_mktresponse, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2momemtumanalystmodel_qma_mktresponse, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2valuemomemtummodel_managementsignalingmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_managementsignalingmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_valuemomemtummodel_managementsignalingmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_valuemomemtummodel_managementsignalingmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_valuemomemtummodel_investorsentimentmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_valuemomemtummodel_investorsentimentmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_ovalueanalystmodel_qva_alertrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ovalueanalystmodel_qva_alertrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_ovalueanalystmodel_qva_earnquality, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ovalueanalystmodel_qva_earnquality, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2valueanalystmodel_qva_earnquality, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2valueanalystmodel_qva_earnquality, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_valueanalystmodel_qva_balsht, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_valueanalystmodel_qva_balsht, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_ovalueanalystmodel_qva_yoychgshares, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ovalueanalystmodel_qva_yoychgshares, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(standardized_unexpected_cash_flow, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-standardized_unexpected_cash_flow, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_fcus, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_fcus, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_oearningmomentumfactor_stockrating, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_stockrating, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_oearningmomentumfactor_rev1q1, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_rev1q1, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.70*group_rank(mdl77_2mqf_ocfast, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2mqf_ocfast, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_2earningsqualityfactor_ttmaccu, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_ttmaccu, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)

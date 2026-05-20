@@ -1,0 +1,39 @@
+# 2026-05-20 v5: liquidity-risk alternates and volume-gated variants.
+# Intended settings: USA TOP3000, INDUSTRY, decay 20, truncation 0.08.
+
+# Alternate namespaces around today's INDUSTRY sigma ACTIVE.
+0.70*group_rank(-mdl77_liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_liquidityriskfactor_sigma_alt, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_liquidityriskfactor_sigma, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl177_liquidityriskfactor_sigma_alt, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Alternate namespaces around today's implied-duration ACTIVE.
+0.70*group_rank(-mdl77_liquidityriskfactor_impduration, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_2_liquidityriskfactor_impduration, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_liquidityriskfactor_impduration_alt, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl77_liquidityriskfactor_impduration, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(-mdl177_liquidityriskfactor_impduration_alt, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Alternate namespaces around pcurlia and low-turnover liquidity fields.
+0.70*group_rank(-mdl77_liquidityriskfactor_pcurlia, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_liquidityriskfactor_pcurlia_alt, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_400_pcurlia, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_netcashp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_mktlev, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_tobinq, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Volume-gated versions to alter holdings and self-correlation.
+trade_when(volume>adv20, 0.70*group_rank(-mdl77_2liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.70*group_rank(-mdl77_2liquidityriskfactor_impduration, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.70*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.80*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.80*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.65*group_rank(snt1_d1_dtstsespe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+# Lower price weight variants for active-adjacent liquidity fields.
+0.85*group_rank(-mdl77_2liquidityriskfactor_sigma, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-mdl77_2liquidityriskfactor_impduration, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.85*group_rank(-mdl77_2liquidityriskfactor_pcurlia, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)

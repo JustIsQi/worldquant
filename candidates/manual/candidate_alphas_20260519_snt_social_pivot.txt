@@ -1,0 +1,44 @@
+# 2026-05-19 broader SNT/social/news pivot.
+# One pure SNT target-percent signal became ACTIVE, but GOOD SNT variants failed
+# self-correlation. Explore adjacent sentiment/social/news fields with simpler
+# and mixed forms.
+
+group_rank(snt1_cored1_score, subindustry)
+0.65*group_rank(snt1_cored1_score, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt1_cored1_score, subindustry)
+0.65*group_rank(-snt1_cored1_score, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt1_d1_dtstsespe, subindustry)
+0.65*group_rank(snt1_d1_dtstsespe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt1_d1_dtstsespe, subindustry)
+0.65*group_rank(-snt1_d1_dtstsespe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt1_d1_longtermepsgrowthest, subindustry)
+0.65*group_rank(snt1_d1_longtermepsgrowthest, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt1_d1_longtermepsgrowthest, subindustry)
+0.65*group_rank(-snt1_d1_longtermepsgrowthest, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt1_d1_netrecpercent, subindustry)
+0.65*group_rank(snt1_d1_netrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt1_d1_netrecpercent, subindustry)
+0.65*group_rank(-snt1_d1_netrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt_buzz, subindustry)
+0.65*group_rank(snt_buzz, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt_buzz, subindustry)
+0.65*group_rank(-snt_buzz, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt_buzz_ret, subindustry)
+0.65*group_rank(snt_buzz_ret, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt_buzz_ret, subindustry)
+0.65*group_rank(-snt_buzz_ret, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt_social_value, subindustry)
+0.65*group_rank(snt_social_value, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt_social_value, subindustry)
+0.65*group_rank(-snt_social_value, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+group_rank(snt_social_volume, subindustry)
+0.65*group_rank(snt_social_volume, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+group_rank(-snt_social_volume, subindustry)
+0.65*group_rank(-snt_social_volume, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

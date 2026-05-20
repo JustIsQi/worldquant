@@ -1,0 +1,31 @@
+# 2026-05-19 strong-anchor decorrelation probe.
+# Use historically strong anchors only as minority components, with low-corr
+# accounting/SNT components carrying most of the expression.
+
+# rel5yfwdep + low-corr lccau.
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.45*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.40*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.45*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.35*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.50*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# rel5yocfp + low-corr lccau.
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.45*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.45*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.35*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Strong value anchor + CRE/lccau blend.
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.30*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.20*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.35*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.20*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.15*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Strong value anchor + SNT time-series signal.
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.45*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.50*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.45*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Debt Good anchor as minority, mixed with lccau.
+0.35*rank(debt/assets)+0.45*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*(-rank(ts_delta(vwap, 10)))
+0.30*rank(debt/assets)+0.50*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*(-rank(ts_delta(vwap, 10)))
+0.35*rank(debt_lt/assets)+0.45*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.20*(-rank(ts_delta(vwap, 10)))
+
+# Three-way low-corr blend with no old price close anchor.
+0.35*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.35*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.30*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)
+0.40*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.35*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.25*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)

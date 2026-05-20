@@ -27,6 +27,9 @@ python3 -m wq_miner.daily --config configs/daily.yaml
 
 默认配置会读取 `.env` 或环境变量中的账号信息，目标是凑够 3 个 ACTIVE alpha。运行产物写入：
 
+当前默认 Simulation 并发可以设为 3：`configs/daily.yaml` 中
+`run.workers: 3` 和 `run.max_inflight: 3` 会同时控制最多 3 个候选在回测/提交流程里并行。
+
 ```text
 runs/YYYY-MM-DD/<run_id>_daily/
 ```
@@ -53,6 +56,7 @@ python3 -m wq_miner.report --run runs/2026-05-11/<run_id>_daily
 ## 调参优先级
 
 - 想降低换手：提高 `brain.decay`，减少短窗口价格项权重。
-- 想提高过审速度：降低 `run.workers` 和 `run.max_inflight`，减少并发限流。
+- 当前可用 Simulation 并发：保持 `run.workers: 3` 和 `run.max_inflight: 3`。
+- 如果遇到限流：降低 `run.workers` 和 `run.max_inflight`，减少并发请求。
 - 想只回测不提交：把 `configs/daily.yaml` 的 `run.auto_submit` 改为 `false`。
 - 想多试人工想法：把表达式放进 `candidates/manual/*.txt`。

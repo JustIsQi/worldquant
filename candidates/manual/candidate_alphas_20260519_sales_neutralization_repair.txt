@@ -1,0 +1,11 @@
+# 2026-05-19 sales surprise neutralization repair.
+# Same strongest sales + rel5yocfp expressions, but to be run under alternate
+# final neutralization levels after SUBINDUSTRY/INDUSTRY both failed
+# LOW_SUB_UNIVERSE_SHARPE.
+
+0.40*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.40*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)
+0.45*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(close, 5), subindustry)

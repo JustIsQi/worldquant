@@ -1,0 +1,29 @@
+# 2026-05-19 SNT1 analyst/news sentiment pivot.
+# Goal: use a different event/sentiment information source after sales surprise
+# failed LOW_SUB_UNIVERSE_SHARPE and short concentration failed self-correlation.
+
+0.65*group_rank(snt1_d1_earningssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_earningssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_earningsrevision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_earningsrevision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_netearningsrevision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_netearningsrevision, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(snt1_d1_nettargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_nettargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_uptargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_uptargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_downtargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_downtargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(snt1_d1_stockrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_stockrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_dynamicfocusrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_dynamicfocusrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_fundamentalfocusrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_fundamentalfocusrank, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(snt1_d1_buyrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_buyrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(snt1_d1_sellrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-snt1_d1_sellrecpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

@@ -1,0 +1,26 @@
+# 2026-05-16 targeted candidates.
+# Focus: option/skew and short-lending signals away from the already ACTIVE q1 EPS,
+# put/call ratio, and act_util clusters.
+
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(mdl177_2_liquidityriskfactor_voldiff_pc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_2_liquidityriskfactor_voldiff_pc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(mdl177_liquidityriskfactor_voldiff_pc_alt, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_liquidityriskfactor_voldiff_pc_alt, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(mdl177_pricemomemtummodel_voldiff_pc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-mdl177_pricemomemtummodel_voldiff_pc, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(out_of_money_put_call_ratio, subindustry)
+0.15*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.85*group_rank(-out_of_money_put_call_ratio, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_days_to_cover, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_days_to_cover, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_benchmark_fee, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_benchmark_fee, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_dmd_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_dmd_supply, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_5shortsentimentfactor_sht_int, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_5shortsentimentfactor_sht_int, subindustry)
+
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_util, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_util, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(mdl177_devnorthamericashortsentimentfactor_days_to_cover, subindustry)
+0.20*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.80*group_rank(-mdl177_devnorthamericashortsentimentfactor_days_to_cover, subindustry)

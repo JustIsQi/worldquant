@@ -1,0 +1,43 @@
+# 2026-05-19 visibility / coverage / geography / short slow-window probe.
+# Built after ZYjMVQ20 proved that visibility can pass self-correlation.
+# Goal: keep the low correlation of visibility/coverage while improving grade.
+
+# Visibility ratio family: transform current levels into slower changes/ranks.
+0.70*group_rank(-ts_delta(mdl77_400_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_400_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_400_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_rank(mdl77_400_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_pricemomentumfactor_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_pricemomentumfactor_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_opricemomentumfactor_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_opricemomentumfactor_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2pricemomentumfactor_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_2pricemomentumfactor_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_v1_400_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl177_v1_400_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Analyst coverage / estimate-count family.
+0.70*group_rank(-ts_delta(mdl77_liquidityriskfactor_numest, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_numest, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_numest, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_numest, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_liquidityriskfactor_numest_alt, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(snt1_d1_analystcoverage, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Geography exposure: repair LOW_SUB_UNIVERSE_SHARPE by using changes/ranks,
+# not the raw level that failed on north_america_sales_exposure.
+0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(north_america_sales_exposure, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(asia_pacific_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Borrow/short slow-window changes: avoid current-level short-interest crowding.
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_conc_ratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_devnorthamericashortsentimentfactor_conc_ratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_dmd_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_dmd_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_dmd_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_tni_ths, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_util, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_benchmark_fee, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,35 @@
+# 2026-05-19 last-mile candidates after reaching 8/10 and GOOD target.
+# Ordered for auto-submit: favor new short-borrow slow changes and geography
+# sensitivity variants. Stop after 2 more ACTIVE.
+
+# Additional borrow-market slow changes, distinct from the benchmark-fee GOOD.
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_days_to_cover, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_days_to_cover, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_act_util, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_act_util, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_lend_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_lend_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_onloan_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_onloan_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_inv_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_inv_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Alternate shortsentimentfactor namespace, because prior model variants can map
+# differently enough to pass even when current-level devnorthamerica fields fail.
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_days_to_cover, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_shortsentimentfactor_days_to_cover, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_act_util, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_lend_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_onloan_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Geography sensitivity model variants, adjacent to the Asia-Pacific GOOD but
+# using model factor versions rather than raw exposure fields.
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_apsales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_apsales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_emeasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2globaldevnorthamericasensitivityfactor_apsales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2globaldevnorthamericasensitivityfactor_emeasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2globaldevnorthamericasensitivityfactor_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2globaldevnorthamericasensitivityfactor_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

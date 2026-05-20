@@ -1,0 +1,25 @@
+# 2026-05-16 GOOD probe.
+# Based on the two GOOD alphas:
+# - TOP3000 + SUBINDUSTRY + decay 10 + truncation 0.08.
+# - High fitness, lower turnover, slow fundamental/value signal.
+# - Probe adjacent 5-year relative-value fields first; any ACTIVE counts toward
+#   the user cap of at most 3 further mined alphas.
+
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5ybp, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5ycfp, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5ycoreepsp, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5ydivp, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yebitdap, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yep, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfcfp, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)
+group_rank(-mdl177_2_5yearrelativevaluefactor_rel5ysp, subindustry)
+
+0.70*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yfwdep, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5ycfp, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yep, subindustry)+0.30*group_rank(-ts_delta(close, 5), subindustry)
+
+0.60*rank(debt/assets)+0.40*(-rank(ts_delta(close, 10)))
+0.60*rank(debt/assets)+0.40*(-rank(ts_delta(close, 20)))
+0.55*rank(debt/assets)+0.45*(-rank(ts_delta(close, 5)))

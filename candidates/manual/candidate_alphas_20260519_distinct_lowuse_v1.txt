@@ -1,0 +1,56 @@
+# 2026-05-19 distinct low-use probe.
+# Goal: look for a GOOD/EXCELLENT candidate that is less correlated than
+# salesurp, SNT1 current-level signals, rel5yfwdep, and simple short-interest
+# templates.
+
+# Earnings-event response / market reaction fields.
+0.70*group_rank(mdl77_momemtumanalystmodel_qma_mktresponse, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_momemtumanalystmodel_qma_mktresponse, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2pricemomentumfactor_rba, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2pricemomentumfactor_rba, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_earningsqualityfactor_cre, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_cre, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Accounting quality fields that should be different from analyst revision.
+0.70*group_rank(mdl77_2earningsqualityfactor_ttmaccu, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2earningsqualityfactor_ttmaccu, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_earningsqualityfactor_yoychgaa, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_yoychgaa, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_earningsqualityfactor_rau, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_rau, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_oearningsqualityfactor_lccau, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_oearningsqualityfactor_lccau, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_earningsqualityfactor_saleeps, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_saleeps, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_earningsqualityfactor_spefcn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_earningsqualityfactor_spefcn, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Investor sentiment / management signaling modules.
+0.70*group_rank(mdl77_valuemomemtummodel_investorsentimentmodule, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_valuemomemtummodel_investorsentimentmodule, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_ovalueanalystmodel_qva_alertrank, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_ovalueanalystmodel_qva_alertrank, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2valueanalystmodel_qva_invsentiment, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2valueanalystmodel_qva_invsentiment, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Macro sensitivity fields: different source, lower expected self-correlation.
+0.70*group_rank(mdl77_2sensitivityfactor400_inflation, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2sensitivityfactor400_inflation, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2sensitivityfactor400_sh, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2sensitivityfactor400_sh, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Short-interest variants using time-series transforms instead of levels.
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_act_util, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_act_util, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_zscore(mdl77_devnorthamericashortsentimentfactor_dmd_supply, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_zscore(mdl77_devnorthamericashortsentimentfactor_dmd_supply, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_devnorthamericashortsentimentfactor_tni_ths, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+# Lower-use short/put-put fields, screened both signs.
+0.70*group_rank(mdl77_oput_put_siratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_oput_put_siratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_put_put_chshrs, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_put_put_chshrs, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_oput_put_strevconf, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_oput_put_strevconf, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
