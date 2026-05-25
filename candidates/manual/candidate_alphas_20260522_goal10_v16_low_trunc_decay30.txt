@@ -1,0 +1,23 @@
+# 2026-05-22 goal10 v16.
+# Intended settings: USA TOP3000, MARKET, decay 30, truncation 0.05.
+# Focus: longer-decay rescue for high-metric self-correlation failures after
+# low truncation helped the north_america_sales_exposure branch.
+
+0.70*group_rank(-mdl77_2growthanalystmodel_qga_epstrend, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-long_term_growth_forecast_2, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(volatility_adjusted_three_year_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-volatility_adjusted_three_year_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_cashp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_capacq, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_cfroi, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.70*group_rank(ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_onloan_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_omomemtumanalystmodel_qma_ratingchg, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(fixed_cash_to_current_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2earningsqualityfactor_chgsgasale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_earningsqualityfactor_salerec, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(skewness_leading_12m_eps_estimates, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2mqf_cashsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

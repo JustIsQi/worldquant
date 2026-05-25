@@ -1,0 +1,28 @@
+# 2026-05-23 goal10 v15.
+# Intended settings: USA TOP500, SECTOR, decay 20, truncation 0.08.
+# Focus: last-mile different information sources: geography, visibility, and
+# analyst sentiment/news-style fields.
+
+0.65*group_rank(-north_america_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.70*group_rank(ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(asia_pacific_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_emeasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_apsales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(-ts_delta(mdl77_400_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_400_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2pricemomentumfactor_visiratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_2pricemomentumfactor_visiratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(ts_zscore(snt1_d1_sellrecpercent, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(ts_zscore(snt1_d1_sellrecpercent, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-snt1_d1_nettargetpercent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(snt1_d1_nettargetpercent, 60), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-snt1_d1_earningstorpedo, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

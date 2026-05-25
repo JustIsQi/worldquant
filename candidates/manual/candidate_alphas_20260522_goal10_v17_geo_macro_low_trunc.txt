@@ -1,0 +1,38 @@
+# 2026-05-22 goal10 v17.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.05.
+# Focus: geography and macro sensitivity fields, using low truncation after
+# north_america_sales_exposure proved that clipping can rescue self-correlation.
+
+0.65*group_rank(-emea_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-emea_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(-emea_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.70*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-latin_america_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-latin_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(-latin_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.70*group_rank(ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-asia_pacific_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-asia_pacific_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(-asia_pacific_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.70*group_rank(ts_delta(asia_pacific_sales_exposure, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(asia_pacific_sales_exposure, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_emeasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_emeasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_lasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_apsales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_apsales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_nasales, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_yieldsprd, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_yieldsprd, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_xiv, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_xiv, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_oilprice, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_oilprice, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,22 @@
+# 2026-05-23 goal10 v12.
+# Intended settings: USA TOP500, SECTOR, decay 20, truncation 0.08.
+# Focus: follow v11's successful -ts_rank(mad3yttmsale, 252) stability signal.
+
+0.65*group_rank(-ts_rank(mdl77_liquidityriskfactor_mad3yttmsale, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_rank(mdl177_liquidityriskfactor_mad3yttmsale_alt, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl77_liquidityriskfactor_mad3yttmsale, 120), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl177_liquidityriskfactor_mad3yttmsale_alt, 120), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-ts_rank(mdl77_liquidityriskfactor_mad3yttmni, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl77_liquidityriskfactor_mad3yttmni, 120), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_rank(mdl177_liquidityriskfactor_mad3yttmni, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl177_liquidityriskfactor_mad3yttmni, 120), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(-ts_rank(mdl77_2historicalgrowthfactor_cv4qsales3y, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl177_historicalgrowthfactor_cv4qsales3y, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl177_historicalgrowthfactor_cv4qcf3y, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl177_historicalgrowthfactor_cv4qeps3y, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(-ts_delta(mdl77_2historicalgrowthfactor_cv4qsales3y, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_historicalgrowthfactor_cv4qsales3y, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_historicalgrowthfactor_cv4qcf3y, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

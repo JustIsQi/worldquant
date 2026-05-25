@@ -1,0 +1,27 @@
+# 2026-05-24 goal13 v8.
+# Intended settings: USA TOP200, SECTOR, decay 20, truncation 0.08.
+# Focus: high-metric leftovers from earlier rejected TOP3000/TOP500 runs that
+# were not covered by the v7 TOP200 rescue batch.
+
+0.65*group_rank(-mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_historicalgrowthfactor_cv4qcf3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_historicalgrowthfactor_cv4qcf3y, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-north_america_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+
+0.65*group_rank(-mdl77_liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_mad3yttmsale, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-ts_delta(mdl77_2liquidityriskfactor_atmputvol, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl177_2_liquidityriskfactor_atmputvol, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_atmputvol, 40), subindustry)+0.30*group_rank(-ts_delta(vwap, 20), subindustry)
+0.70*group_rank(-ts_delta(mdl177_2_liquidityriskfactor_atmputvol, 40), subindustry)+0.30*group_rank(-ts_delta(vwap, 20), subindustry)
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_dmd_supply, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,38 @@
+# 2026-05-23 goal10 v6.
+# Intended settings: USA TOP500, SECTOR, decay 20, truncation 0.08.
+# Focus: rescue historically strong earnings-surprise and option-skew structures
+# by moving to a narrower universe and different neutralization.
+
+0.65*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.40*group_rank(-ts_delta(close, 5), subindustry)
+
+0.50*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.50*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.30*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.50*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.30*group_rank(-mdl77_2valuemomemtummodel_earningsqualitymodule, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.45*group_rank(-mdl77_oearningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.45*group_rank(-mdl77_earningmomentumfactor_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.45*group_rank(-mdl77_2earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-mdl177_2_5yearrelativevaluefactor_rel5yocfp, subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl77_2earningmomentumfactor400_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2earningmomentumfactor400_sue, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_sue, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2gdna_surp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-standardized_unexpected_cashflow, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(implied_volatility_call_60-implied_volatility_put_60, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_call_90-implied_volatility_put_90, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(implied_volatility_call_120-implied_volatility_put_120, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(implied_volatility_mean_skew_30, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(implied_volatility_mean_skew_90, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.75*group_rank(-mdl177_2_pricemomentumfactor_pc_ratio, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl177_pricemomentumfactor_pc_ratio, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.75*group_rank(-mdl177_pricemomentumfactor_pc_ratio_alt, subindustry)+0.25*group_rank(-ts_delta(close, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_2_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_fa_voldiff_pc, 20), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

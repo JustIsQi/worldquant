@@ -1,0 +1,33 @@
+# 2026-05-23 goal10 v4.
+# Intended settings: USA TOP1000, INDUSTRY, decay 20, truncation 0.08.
+# Focus: broaden the successful -ts_rank(mad3yttmsale, 252) structure into
+# adjacent liquidity, solvency, and accounting-stability fields.
+
+0.65*group_rank(-ts_rank(mdl77_liquidityriskfactor_mad3yttmsale, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_rank(mdl77_liquidityriskfactor_mad3yttmni, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl77_liquidityriskfactor_mad3yttmni, 120), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_rank(mdl177_liquidityriskfactor_mad3yttmni, 252), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-ts_delta(mdl177_liquidityriskfactor_mad3yttmni, 120), subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_rank(mdl77_liquidityriskfactor_ocfratio, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_ocfratio, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_rank(mdl77_liquidityriskfactor_dcc, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_dcc, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_rank(mdl77_liquidityriskfactor_totalcov, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_totalcov, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_ohlsonscore, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_liquidityriskfactor_ohlsonscore, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_rank(mdl77_liquidityriskfactor_altmanz, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_altmanz, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_iqa, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_liquidityriskfactor_iqa, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_rank(mdl77_liquidityriskfactor_netcashp, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_netcashp, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_pcurlia, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_liquidityriskfactor_pcurlia, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_mktlev, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_rerror60m, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_rank(mdl77_liquidityriskfactor_sigma, 252), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

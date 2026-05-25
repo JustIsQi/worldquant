@@ -1,0 +1,44 @@
+# 2026-05-22 goal10 v7.
+# Intended settings: USA TOP1000, MARKET, decay 20, truncation 0.08.
+# Focus: rescue high-metric TOP3000 self-correlation failures using TOP1000,
+# then test adjacent low-use stability, credit, dividend, and liquidity fields.
+
+0.65*group_rank(-mdl77_valuemomemtummodel_earningsexpectationmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_surpriseanalystmodel_qsa_surpsn, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_surpriseanalystmodel_qsa_estexpect, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(skewness_leading_12m_eps_estimates, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-skewness_leading_12m_eps_estimates, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-revision_fiscal_q1_eps_forecast, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-standardized_unexpected_cash_flow, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2surpriseanalystmodel_qsa_percent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2surpriseanalystmodel_qsa_percent, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2historicalgrowthfactor_rsqr4qsales3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2historicalgrowthfactor_rsqr4qsales3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2historicalgrowthfactor_slope4qfcf3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2historicalgrowthfactor_slope4qfcf3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_historicalgrowthfactor_y3fcq4rqsr, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_historicalgrowthfactor_y3fcq4rqsr, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ohistoricalgrowthfactor_y3speq4vc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_ohistoricalgrowthfactor_y3speq4vc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_sip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2liquidityriskfactor_sip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_ocfratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2liquidityriskfactor_ocfratio, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_liquidityriskfactor_dcc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_dcc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_liquidityriskfactor_iqa, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_liquidityriskfactor_iqa, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(credit_risk_premium_indicator, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-credit_risk_premium_indicator, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(distress_risk_measure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-distress_risk_measure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(five_year_dividend_growth_rate_2, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-five_year_dividend_growth_rate_2, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(dividend_estimate_standard_deviation, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-dividend_estimate_standard_deviation, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(dividend_estimate_value, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-dividend_estimate_value, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

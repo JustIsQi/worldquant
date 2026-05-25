@@ -1,0 +1,31 @@
+# 2026-05-24 goal13 v7.
+# Intended settings: USA TOP200, SECTOR first; MARKET if needed.
+# Focus: strongest same-day families on a narrower universe to reduce
+# self-correlation with already submitted TOP3000/TOP1000/TOP500 alphas.
+
+0.65*group_rank(-one_year_ahead_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-one_year_ahead_eps_growth, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-two_year_relative_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-two_year_relative_eps_growth, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_2growthanalystmodel_qga_epscapex, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_2growthanalystmodel_qga_epscapex, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_iarsales, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2growthanalystmodel_qga_iarsales, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_opmarginsales, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_2growthanalystmodel_qga_opmarginsales, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_epstrend, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2growthanalystmodel_qga_epstrend, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel2_qga_ltepssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl77_2growthanalystmodel2_qga_ltepssurprise, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl177_2_sensitivityfactor400_chgqtrepssurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl177_2_sensitivityfactor400_chgqtrepssurp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_sensitivityfactor400_chgqtrepssurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(mdl177_2_sensitivityfactor400_chgqtrepssurp, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_sensitivityfactor400_rev3my1std, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_sensitivityfactor400_rev3my2std, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl177_2_earningsqualityfactor_uaccl, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_uar, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_earningsqualityfactor_erc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

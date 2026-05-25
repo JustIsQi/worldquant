@@ -1,0 +1,39 @@
+# 2026-05-24 goal13 v4.
+# Intended settings: USA TOP3000, SECTOR, decay 20, truncation 0.08.
+# Focus: adjacent but not-yet-submitted growth analyst, earnings quality, and
+# sensitivity fields. These are different information sources from the crowded
+# sales-stability and EPS-growth anchors.
+
+0.65*group_rank(mdl77_2growthanalystmodel_qga_composite, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_composite, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_epstrend, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_epstrend, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_fcfroe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_fcfroe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_iarsales, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_iarsales, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_niroe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_niroe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_opmarginsales, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_opmarginsales, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-mdl177_2_earningsqualityfactor_chgshare, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_ttmaccu, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_wcacc, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_salerec, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_saleeps, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_opincltd, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_uaccl, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_uar, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningsqualityfactor_uinv, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_earningsqualityfactor_erc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-mdl177_2_sensitivityfactor400_chgqtrepssurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_sensitivityfactor400_chgqtrepssurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_sensitivityfactor400_earnshortfall, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_sensitivityfactor400_y2aepsgpc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_sensitivityfactor400_rev3my1std, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_sensitivityfactor400_rev3my2std, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_sensitivityfactor400_ttmocfev, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_sensitivityfactor400_ttmopincev, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_sensitivityfactor400_capexdeplink, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)

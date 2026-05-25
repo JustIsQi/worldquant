@@ -1,0 +1,33 @@
+# 2026-05-25 goal5 v6.
+# Intended first settings: USA TOP200, MARKET, decay 20, truncation 0.08.
+# Focus: earlier high-signal surprise/revision and earnings-quality fields with
+# different universe/neutralization to look for non-identical countable alphas.
+
+0.65*group_rank(quarterly_eps_surprise_delta, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-quarterly_eps_surprise_delta, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(quarterly_eps_surprise_change, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-quarterly_eps_surprise_change, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(change_in_eps_surprise, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-change_in_eps_surprise, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl77_2earningmomentumfactor400_rev1q1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2earningmomentumfactor400_rev1q1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_rev1q1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_earningmomentumfactor400_rev1q1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_oearningmomentumfactor_rev1q1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_oearningmomentumfactor_rev1q1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_oearningsqualityfactor_salegpm, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_oearningsqualityfactor_salegpm, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_earningsqualityfactor_rau, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_earningsqualityfactor_rau, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2gdna_yoychgda, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2gdna_yoychgda, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2earningsqualityfactor_pedu, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2earningsqualityfactor_pedu, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl77_oearningsqualityfactor_salegpm, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_earningsqualityfactor_rau, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_earningsqualityfactor_rau, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2gdna_yoychgda, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2gdna_yoychgda, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

@@ -1,0 +1,41 @@
+# 2026-05-24 goal13 v6.
+# Intended settings: USA TOP500, MARKET, decay 20, truncation 0.08.
+# Focus: fresh module-level value momentum, earning momentum, and sensitivity
+# fields after growth-sales variants became crowded.
+
+0.65*group_rank(mdl77_2valuemomemtummodel_earningsexpectationmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_earningsexpectationmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2valuemomemtummodel_earningspricelinkmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_earningspricelinkmodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2valuemomemtummodel_earningsvaluationmodule, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_earningsvaluationmodule, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2valuemomemtummodel_reportedearningsmomentummodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_reportedearningsmomentummodule, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2valuemomemtummodel_managementsignalingmodule, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_managementsignalingmodule, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2valuemomemtummodel_investorsentimentmodule, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2valuemomemtummodel_investorsentimentmodule, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl177_2_earningmomentumfactor400_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_fqsurstd, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_salesurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_earningmomentumfactor400_numrevy1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_numrevy1, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_earningmomentumfactor400_hlep, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_hlep, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl177_2_earningmomentumfactor400_y3sur, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_earningmomentumfactor400_y3sur, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_2400_ctpmto, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2400_ctpmto, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2400_impvol, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2400_impvol, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2400_rmi, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2400_rmi, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(mdl77_2400_rev3my1std, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2400_rev3my1std, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2400_rev3my2std, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2400_rev3my2std, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2400_chgqtrepssurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2400_chgqtrepssurp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

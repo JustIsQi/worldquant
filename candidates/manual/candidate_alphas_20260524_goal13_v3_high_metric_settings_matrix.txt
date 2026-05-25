@@ -1,0 +1,29 @@
+# 2026-05-24 goal13 v3.
+# Intended settings matrix: start TOP3000/SECTOR, then TOP500/MARKET or
+# TOP1000/MARKET/low-truncation if needed.
+# Focus: high-metric sources from v2 plus a few neighboring transforms.
+
+0.65*group_rank(-one_year_ahead_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-one_year_ahead_eps_growth, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-two_year_relative_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-two_year_relative_eps_growth, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl77_liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_mad3yttmsale, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl177_historicalgrowthfactor_cv4qcf3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_historicalgrowthfactor_cv4qcf3y, subindustry)+0.35*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(-mdl77_2historicalgrowthfactor_cv4qsales3y, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_2growthanalystmodel2_qga_ltepssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_growthanalystmodel2_qga_ltepssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel_qga_epscapex, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_growthanalystmodel_qga_epscapex, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-ts_delta(mdl77_2liquidityriskfactor_atmputvol, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl177_2_liquidityriskfactor_atmputvol, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-north_america_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_dmd_supply, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

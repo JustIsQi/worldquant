@@ -1,0 +1,33 @@
+# 2026-05-22 goal10 v11.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Focus: shape rescue for high-metric candidates that mainly failed
+# SELF_CORRELATION. Use all-market rank and trade_when path changes instead of
+# small weight edits.
+
+0.65*rank(-one_quarter_ahead_eps_growth)+0.35*rank(-ts_delta(close, 5))
+trade_when(volume>adv20, 0.65*group_rank(-one_quarter_ahead_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+0.70*rank(-one_quarter_ahead_eps_growth)+0.30*rank(-ts_delta(vwap, 10))
+
+0.65*rank(mdl177_2_globaldevnorthamerica_v502_capacq)+0.35*rank(-ts_delta(close, 5))
+trade_when(volume>adv20, 0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_capacq, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+0.65*rank(-mdl177_2_globaldevnorthamerica_v502_cashp)+0.35*rank(-ts_delta(close, 5))
+trade_when(volume>adv20, 0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_cashp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+0.70*rank(ts_delta(twelve_month_short_interest_change, 60))+0.30*rank(-ts_delta(vwap, 10))
+trade_when(volume>adv20, 0.70*group_rank(ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.75*rank(ts_delta(twelve_month_short_interest_change, 90))+0.25*rank(-ts_delta(vwap, 10))
+
+0.65*rank(ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20))+0.35*rank(-ts_delta(close, 5))
+0.65*rank(-ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20))+0.35*rank(-ts_delta(close, 5))
+trade_when(volume>adv20, 0.65*rank(ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20))+0.35*rank(-ts_delta(close, 5)), -1)
+trade_when(volume>adv20, 0.65*rank(-ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20))+0.35*rank(-ts_delta(close, 5)), -1)
+
+0.65*rank(-revision_fiscal_q1_eps_forecast)+0.35*rank(-ts_delta(close, 5))
+0.65*rank(-standardized_unexpected_cash_flow)+0.35*rank(-ts_delta(close, 5))
+0.65*rank(-volatility_adjusted_three_year_eps_growth)+0.35*rank(-ts_delta(close, 5))
+trade_when(volume>adv20, 0.65*group_rank(-volatility_adjusted_three_year_eps_growth, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+0.70*rank(fixed_cash_to_current_liabilities_ratio)+0.30*rank(-ts_delta(vwap, 10))
+trade_when(volume>adv20, 0.70*group_rank(fixed_cash_to_current_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.70*rank(-mdl77_liquidityriskfactor_betasigma)+0.30*rank(-ts_delta(vwap, 10))
+0.70*rank(-mdl77_liquidityriskfactor_sigma)+0.30*rank(-ts_delta(vwap, 10))

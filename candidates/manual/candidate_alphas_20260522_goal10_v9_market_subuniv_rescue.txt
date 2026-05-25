@@ -1,0 +1,30 @@
+# 2026-05-22 goal10 v9.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Focus: rescue SUBINDUSTRY candidates that had strong Sharpe/Fitness but
+# failed LOW_SUB_UNIVERSE_SHARPE, especially short-interest change and option
+# put-call volatility structure.
+
+0.70*group_rank(ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(twelve_month_short_interest_change, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.75*group_rank(ts_delta(twelve_month_short_interest_change, 120), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(mdl177_2_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl177_2_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(mdl77_2pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl77_2pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-ts_delta(mdl77_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.60*group_rank(-ts_delta(mdl77_voldiff_pc, 20), subindustry)+0.40*group_rank(-ts_delta(vwap, 10), subindustry)
+0.55*group_rank(-ts_delta(mdl77_voldiff_pc, 30), subindustry)+0.45*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.65*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+0.70*group_rank(-mdl77_2liquidityriskfactor_rerror60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_betasigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl177_liquidityriskfactor_betasigma_alt, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_liquidityriskfactor_mad3yttmsale_alt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

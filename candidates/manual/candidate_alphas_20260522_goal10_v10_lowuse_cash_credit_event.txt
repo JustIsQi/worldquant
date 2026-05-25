@@ -1,0 +1,42 @@
+# 2026-05-22 goal10 v10.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Focus: less-crowded model77 cash-flow/financing/credit-style fields and a
+# small event/news matrix retest that avoids invalid VECTOR ts_delta usage.
+
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_chg3yfcfp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_chg3yfcfp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_chg3yocfp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_chg3yocfp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_cfroi, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_cfroi, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_cashp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_cashp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_cfleverage, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_cfleverage, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_capacq, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_capacq, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_put_put_cashburn, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_put_put_cashburn, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_put_put_siratio, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_put_put_siratio, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_putput_strevconf, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_putput_strevconf, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_putput_indfcfp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_putput_indfcfp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_putput_opincev, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_putput_opincev, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.70*group_rank(twelve_month_total_debt_change_2, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-twelve_month_total_debt_change_2, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(fixed_cash_to_current_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-fixed_cash_to_current_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(liquidity_cash_to_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-liquidity_cash_to_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(news_max_dn_ret, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-news_max_dn_ret, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(news_max_up_ret, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-news_max_up_ret, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(news_range_stddev, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-news_range_stddev, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

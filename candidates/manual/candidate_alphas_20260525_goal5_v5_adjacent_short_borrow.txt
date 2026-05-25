@@ -1,0 +1,37 @@
+# 2026-05-25 goal5 v5.
+# Intended first settings: USA TOP200, SECTOR, decay 20, truncation 0.08.
+# Focus: adjacent securities-lending fields beyond today's dmd_conc,
+# conc_ratio, and act_util submissions.
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_days_to_cover, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_days_to_cover, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_days_to_cover, 120), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_days_to_cover, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_inv_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_inv_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_inv_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_inv_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_onloan_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_onloan_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_onloan_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_onloan_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_sht_int, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_sht_int, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl177_5shortsentimentfactor_sht_int, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_5shortsentimentfactor_sht_int, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_lend_supply, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_lend_supply, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_devnorthamericashortsentimentfactor_lend_supply, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_devnorthamericashortsentimentfactor_lend_supply, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_util, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_util, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_util, 150), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_util, 150), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+trade_when(volume>adv20, 0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_onloan_conc, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+trade_when(volume>adv20, 0.70*group_rank(ts_delta(mdl177_devnorthamericashortsentimentfactor_sht_int, 90), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)

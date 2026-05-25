@@ -1,0 +1,43 @@
+# 2026-05-22 goal10 v8.
+# Intended settings: USA TOP3000, SUBINDUSTRY, decay 20, truncation 0.08.
+# Focus: short/borrow and option/liquidity-risk transforms plus stability
+# fields, avoiding the crowded EPS revision and earnings surprise families.
+
+0.80*group_rank(-ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.80*group_rank(ts_delta(mdl77_shortsentimentfactor_benchmark_fee, 120), subindustry)+0.20*group_rank(-ts_delta(vwap, 10), subindustry)
+0.75*group_rank(-ts_delta(mdl177_5shortsentimentfactor_benchmark_fee, 120), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.75*group_rank(ts_delta(mdl177_5shortsentimentfactor_benchmark_fee, 120), subindustry)+0.25*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_2liquidityriskfactor_monchgsip, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_liquidityriskfactor_monchgsip_alt, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl177_liquidityriskfactor_monchgsip_alt, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_days_to_cover, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_shortsentimentfactor_days_to_cover, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_shortsentimentfactor_dmd_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_shortsentimentfactor_dmd_supply, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-ts_delta(mdl77_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(mdl77_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(mdl77_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ts_delta(mdl177_2_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ts_delta(mdl177_2_pricemomemtummodel_voldiff_pc, 20), subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+trade_when(volume>adv20, 0.65*group_rank(mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+trade_when(volume>adv20, 0.65*group_rank(-mdl77_2liquidityriskfactor_voldiff_pc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry), -1)
+
+0.70*group_rank(-mdl77_2liquidityriskfactor_sigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_2liquidityriskfactor_rerror60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_2liquidityriskfactor_rerror60m, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-mdl77_liquidityriskfactor_betasigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(mdl77_liquidityriskfactor_betasigma, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(-mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_liquidityriskfactor_mad3yttmsale, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2liquidityriskfactor_mad3yttmni, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2liquidityriskfactor_mad3yttmni, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl177_2_liquidityriskfactor_mad3yttmni, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_liquidityriskfactor_mad3yttmni, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)

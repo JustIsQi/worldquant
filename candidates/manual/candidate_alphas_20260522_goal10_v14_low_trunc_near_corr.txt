@@ -1,0 +1,24 @@
+# 2026-05-22 goal10 v14.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.05.
+# Focus: near self-correlation failures with good raw metrics. Lower truncation
+# may reduce overlap with existing ACTIVE alphas by clipping large positions.
+
+0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.65*group_rank(-north_america_sales_exposure, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+
+0.65*group_rank(-mdl77_2growthanalystmodel_qga_epstrend, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_growthanalystmodel_qga_ltepssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2growthanalystmodel2_qga_ltepssurprise, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_surpriseanalystmodel_qsa_estexpect, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(-mdl177_2_globaldevnorthamerica_v502_cashp, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_capacq, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl177_2_globaldevnorthamerica_v502_cfroi, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.70*group_rank(ts_delta(twelve_month_short_interest_change, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl177_devnorthamericashortsentimentfactor_onloan_conc, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.70*group_rank(fixed_cash_to_current_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+trade_when(volume>adv20, 0.70*group_rank(fixed_cash_to_current_liabilities_ratio, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry), -1)
+0.70*group_rank(ts_delta(mdl77_omomemtumanalystmodel_qma_ratingchg, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

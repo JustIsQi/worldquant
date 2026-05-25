@@ -4,19 +4,20 @@
 
 Update this section at the end of every daily factor-mining task.
 
-Last updated: 2026-05-20
+Last updated: 2026-05-25
 
 Current submitted factor count:
 
-- AVERAGE: 43
-- GOOD: 7
-- EXCELLENT: 1
-- Total: 51
+- INFERIOR: 1
+- AVERAGE: 86
+- GOOD: 16
+- EXCELLENT: 2
+- Total: 105
 
 Current mix:
 
 ```text
-AVERAGE : GOOD : EXCELLENT = 43 : 7 : 1
+INFERIOR : AVERAGE : GOOD : EXCELLENT = 1 : 86 : 16 : 2
 ```
 
 Target monthly mix:
@@ -25,10 +26,12 @@ Target monthly mix:
 AVERAGE : GOOD : EXCELLENT = 5 : 4 : 1
 ```
 
-Interpretation: the current book remains strongly AVERAGE-heavy even after two
-new GOOD alphas on 2026-05-20. Future mining should use stricter submission
-standards and prioritize candidates with a realistic chance of becoming GOOD or
-EXCELLENT rather than accepting every borderline ACTIVE alpha.
+Interpretation: the 2026-05-25 run added 5 countable ACTIVE alphas: 4
+AVERAGE and 1 GOOD. The run reached the requested count, but the book remains
+AVERAGE-heavy and the session encountered many SELF_CORRELATION rejects after
+initial successes in short-borrow and receivables-quality fields. Future mining
+should continue to switch information sources quickly after one or two wins in
+a family.
 
 ## Strategic Objective
 
@@ -44,6 +47,15 @@ ACTIVE alphas, aim for roughly 5 AVERAGE, 4 GOOD, and 1 EXCELLENT. If the
 current month is already AVERAGE-heavy, raise submission thresholds and spend
 more budget on stronger candidates rather than accepting marginal ACTIVE
 alphas.
+
+## Countable Quality Grades
+
+For mining goals, only count newly submitted ACTIVE alphas whose quality grade
+is `AVERAGE`, `GOOD`, or `EXCELLENT`. Do not count `INFERIOR`, `Below average`,
+or any lower/unclear quality label toward the requested target number, even if
+the alpha is technically ACTIVE. Record those low-grade ACTIVE alphas for
+learning and statistics, but keep mining until the requested count is satisfied
+with countable-quality alphas.
 
 ## Current Lessons
 
@@ -251,7 +263,9 @@ When the user starts a mining goal such as:
 ```
 
 interpret the number as the required count of newly mined ACTIVE/submitted
-factors for the current session. After the target count is reached, do not stop
+factors for the current session with a countable quality grade: `AVERAGE`,
+`GOOD`, or `EXCELLENT`. `INFERIOR`, `Below average`, and lower/unclear grades
+do not satisfy the target count. After the target count is reached, do not stop
 with only a brief status update. Before marking the work complete, create a
 detailed strategy summary under `docs/`.
 

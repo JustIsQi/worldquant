@@ -1,0 +1,5 @@
+# Cleanup for already-queued v15 candidates.
+# Intended settings: USA TOP500, SECTOR, decay 20, truncation 0.08.
+
+0.70*group_rank(ts_delta(emea_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(latin_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)

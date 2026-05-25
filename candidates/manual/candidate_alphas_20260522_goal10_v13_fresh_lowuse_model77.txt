@@ -1,0 +1,52 @@
+# 2026-05-22 goal10 v13.
+# Intended settings: USA TOP3000, MARKET, decay 20, truncation 0.08.
+# Focus: fresh low-use model77 fields outside the crowded EPS-quality,
+# option-liquidity, and short-borrow rescue loops.
+
+0.70*group_rank(north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-north_america_sales_exposure, subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(north_america_sales_exposure, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(time_weighted_cash_flow_to_price, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-time_weighted_cash_flow_to_price, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(time_weighted_ebitda_to_enterprise_value_2, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-time_weighted_ebitda_to_enterprise_value_2, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(ten_year_average_earnings_inflation, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-ten_year_average_earnings_inflation, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(stddev_fy2_eps_estimates_to_price, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-stddev_fy2_eps_estimates_to_price, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_deepvaluefactor_pb, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_deepvaluefactor_pb, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_deepvaluefactor_pqipmtt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_deepvaluefactor_pqipmtt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_deepvaluefactor_psmtt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_deepvaluefactor_psmtt, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_deepvaluefactor_ebitdap, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_deepvaluefactor_ebitdap, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_relativevaluemodel_roe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_relativevaluemodel_roe, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_relativevaluemodel_rvm_composite, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_relativevaluemodel_rvm_composite, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.70*group_rank(ts_delta(mdl77_2sensitivityfactor400_yieldsprd, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_2sensitivityfactor400_yieldsprd, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(ts_delta(mdl77_omomemtumanalystmodel_qma_ratingchg, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+0.70*group_rank(-ts_delta(mdl77_omomemtumanalystmodel_qma_ratingchg, 60), subindustry)+0.30*group_rank(-ts_delta(vwap, 10), subindustry)
+
+0.65*group_rank(mdl77_2momemtumanalystmodel_qma_mktresponse, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2momemtumanalystmodel_qma_mktresponse, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_omomemtumanalystmodel_qma_indrelrtn3m, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_omomemtumanalystmodel_qma_indrelrtn3m, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_2mqf_aoer, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2mqf_aoer, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_2mqf_yoychgroa, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_2mqf_yoychgroa, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+
+0.65*group_rank(mdl77_ohistoricalgrowthfactor_pfcghc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ohistoricalgrowthfactor_pfcghc, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(mdl77_ohistoricalgrowthfactor_pctchgcf, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
+0.65*group_rank(-mdl77_ohistoricalgrowthfactor_pctchgcf, subindustry)+0.35*group_rank(-ts_delta(close, 5), subindustry)
